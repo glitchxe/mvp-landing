@@ -18,7 +18,7 @@ function HeroContent({ title, titleHighlight, description, subtitle, primaryActi
     <div className="flex flex-col space-y-6">
       <div className="flex flex-col gap-3">
         <motion.h1
-          className="font-heading text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl leading-[1.0] text-[#E5E5E5]"
+          className="font-heading text-3xl font-black tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.05] text-[#E5E5E5]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease }}
@@ -27,7 +27,7 @@ function HeroContent({ title, titleHighlight, description, subtitle, primaryActi
         </motion.h1>
         {titleHighlight && (
           <motion.p
-            className="font-heading text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl leading-[1.0] text-[#C9A84C]"
+            className="font-heading text-3xl font-black tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.05] text-[#C9A84C]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.8, ease }}
@@ -106,7 +106,7 @@ interface HeroProps {
 export function Hero({ pill, content, preview }: HeroProps) {
   return (
     <div className="relative overflow-hidden">
-      <div className="flex min-h-[calc(100vh-72px)] flex-col lg:flex-row items-center py-16 px-6 md:px-12 lg:px-16 max-w-7xl mx-auto gap-12">
+      <div className="flex min-h-[60vh] lg:min-h-[calc(100vh-72px)] flex-col lg:flex-row items-center py-12 md:py-16 px-6 md:px-12 lg:px-16 max-w-7xl mx-auto gap-10 lg:gap-12">
         <div className={`flex flex-col gap-6 w-full ${preview ? 'lg:max-w-2xl' : ''}`}>
           {pill && <HeroBadge {...pill} />}
           <HeroContent {...content} />

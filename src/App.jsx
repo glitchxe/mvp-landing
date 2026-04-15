@@ -62,7 +62,7 @@ const MVPLogoNav = () => (
       MVP
     </span>
     <span
-      className="font-semibold uppercase text-[#C9A84C]"
+      className="hidden sm:block font-semibold uppercase text-[#C9A84C]"
       style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.975rem', letterSpacing: '0.16em' }}
     >
       Max Venture Power
@@ -418,7 +418,7 @@ export default function App() {
 
       {/* ── LATEST EDITION CARD ─────────────────────────────────────────────── */}
       {/* ── PAIN ────────────────────────────────────────────────────────────── */}
-      <section className="py-28 md:py-36 border-t border-[#111]">
+      <section className="py-16 md:py-28 lg:py-36 border-t border-[#111]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <Reveal>
             <p className="text-xl font-black text-[#C9A84C] uppercase tracking-[0.22em] mb-10">{tr.pain.label}</p>
@@ -447,7 +447,7 @@ export default function App() {
       </section>
 
       {/* ── WHAT YOU GET ────────────────────────────────────────────────────── */}
-      <section className="py-28 md:py-36 border-t border-[#111]">
+      <section className="py-16 md:py-28 lg:py-36 border-t border-[#111]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <Reveal>
             <p className="text-xl font-black text-[#C9A84C] uppercase tracking-[0.22em] mb-4">{tr.whatYouGet.label}</p>
@@ -496,7 +496,7 @@ export default function App() {
       </section>
 
       {/* ── PROOF ───────────────────────────────────────────────────────────── */}
-      <section className="py-28 md:py-36 border-t border-[#111]">
+      <section className="py-16 md:py-28 lg:py-36 border-t border-[#111]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <Reveal>
             <h2 className="text-5xl md:text-6xl font-black tracking-tight text-[#E5E5E5] mb-20 leading-[0.95]"
@@ -538,7 +538,7 @@ export default function App() {
       </section>
 
       {/* ── MVP PIPELINE DASHBOARD ──────────────────────────────────────────── */}
-      <section id="pipeline" className="py-28 md:py-36 border-t border-[#111]">
+      <section id="pipeline" className="py-16 md:py-28 lg:py-36 border-t border-[#111]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <Reveal>
             <div className="flex items-center gap-3 mb-3">
@@ -563,7 +563,7 @@ export default function App() {
       </section>
 
       {/* ── FOR FOUNDERS + BUSINESSES ───────────────────────────────────────── */}
-      <section id="founders" className="py-28 md:py-36 border-t border-[#111]">
+      <section id="founders" className="py-16 md:py-28 lg:py-36 border-t border-[#111]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid md:grid-cols-2 gap-px bg-[#111]">
 
@@ -646,7 +646,7 @@ export default function App() {
       {/* ── FOOTER ──────────────────────────────────────────────────────────── */}
       <footer className="py-16 border-t border-[#111]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
+          <div className="grid md:grid-cols-4 gap-8 md:gap-12 mb-12">
             <div className="md:col-span-2">
               <MVPLogo className="mb-5" />
               <p className="text-[#888] text-sm mb-6 italic" style={{ fontFamily: 'DM Sans, sans-serif' }}>

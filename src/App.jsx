@@ -52,22 +52,13 @@ const MVPLogo = ({ className = '' }) => (
   </div>
 );
 
-// Nav-sized logo (horizontal layout)
+// Nav-sized logo (image)
 const MVPLogoNav = () => (
-  <div className="flex items-center gap-3">
-    <span
-      className="font-black text-[#E5E5E5]"
-      style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '2.25rem', letterSpacing: '-0.03em', lineHeight: 1 }}
-    >
-      MVP
-    </span>
-    <span
-      className="hidden sm:block font-semibold uppercase text-[#C9A84C]"
-      style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.975rem', letterSpacing: '0.16em' }}
-    >
-      Max Venture Power
-    </span>
-  </div>
+  <img
+    src="/og-image.png"
+    alt="MVP | Max Venture Power"
+    className="h-10 w-auto"
+  />
 );
 
 // ─── Scroll reveal ─────────────────────────────────────────────────────────────

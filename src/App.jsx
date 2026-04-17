@@ -31,7 +31,23 @@ const parseCSV = (text) => {
 };
 
 const SHEET_URL = `https://docs.google.com/spreadsheets/d/17V8eS7VfCxwTSRs2wfmzUT8wtKW2aHmz-EaQT7E9irM/gviz/tq?tqx=out:csv&gid=53967996`;
-const COL = { SECTOR: 19, STAGE: 20, AMOUNT: 22, PROBLEM: 24, PUBLISH: 33 };
+
+// Column names to look up dynamically from the header row — immune to column insertions
+const COL_NAMES = {
+  SECTOR:  'Sectors',
+  STAGE:   'Etapas | Stages',
+  AMOUNT:  'Monto buscado | Amount to Raise (USD)',
+  PROBLEM: 'El problema | The Problem',
+  PUBLISH: 'PUBLISH?',
+};
+
+const buildColIndex = (header) => {
+  const idx = {};
+  for (const [key, name] of Object.entries(COL_NAMES)) {
+    idx[key] = header.findIndex(h => h.replace(/^"|"$/g, '').trim() === name);
+  }
+  return idx;
+};
 
 // ─── Logo — full name always visible ──────────────────────────────────────────
 
@@ -159,7 +175,9 @@ const PipelineDashboard = ({ tr }) => {
     fetch(`${SHEET_URL}&_=${Date.now()}`)
       .then(r => { if (!r.ok) throw new Error('Sheet unavailable'); return r.text(); })
       .then(text => {
-        const rows = parseCSV(text).slice(1)
+        const all = parseCSV(text);
+        const COL = buildColIndex(all[0] || []);
+        const rows = all.slice(1)
           .filter(r => r[COL.PUBLISH]?.trim().toLowerCase() === 'yes')
           .map((r, i) => ({
             id: i,

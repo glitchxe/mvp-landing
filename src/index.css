@@ -229,6 +229,19 @@ input:focus {
   }
 }
 
+/* Active Deals nav button — slow flash on the whole button */
+@keyframes nav-flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+.active-deals-btn {
+  animation: nav-flash 2.5s ease-in-out infinite;
+}
+.active-deals-btn:hover {
+  animation: none;
+  opacity: 1;
+}
+
 /* Partner card gradient text on hover */
 .partner-name {
   color: #E5E5E5;

@@ -394,6 +394,15 @@ export default function App() {
             <MVPLogoNav />
           </a>
           <div className="flex items-center gap-3">
+            <a href="#pipeline"
+              className="active-deals-btn hidden sm:flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-wide text-[#0D0D0D] bg-[#C9A84C] hover:bg-[#D4B45C] transition-colors cursor-pointer"
+              style={{ fontFamily: 'Space Grotesk, sans-serif', letterSpacing: '0.08em' }}>
+              <span className="relative flex h-2 w-2 shrink-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0D0D0D] opacity-60" style={{ animationDuration: '2s' }}></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0D0D0D]"></span>
+              </span>
+              Active Deals
+            </a>
             <button
               onClick={() => setLang(l => l === 'en' ? 'es' : 'en')}
               className="text-xs font-bold text-[#888] hover:text-[#E5E5E5] transition-colors tracking-widest uppercase border border-[#2A2A2A] hover:border-[#555] px-2.5 py-1.5 cursor-pointer"

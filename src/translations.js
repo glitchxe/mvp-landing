@@ -91,7 +91,7 @@ export const translations = {
     partners: {
       label: 'Current Partners',
       items: [
-        { name: 'BlockCon Global', url: 'https://www.blockcon.co/', desc: 'Blockchain & Web3 Conference' },
+        { name: 'BlockCon Global', url: 'https://www.blockcon.co/', desc: 'Web3 & Blockchain Retreat' },
         { name: 'Venture Week', url: 'https://www.venture-week.com/', desc: 'LATAM Startup Events' },
       ],
     },
@@ -208,7 +208,7 @@ export const translations = {
     partners: {
       label: 'Partners Actuales',
       items: [
-        { name: 'BlockCon Global', url: 'https://www.blockcon.co/', desc: 'Conferencia Blockchain & Web3' },
+        { name: 'BlockCon Global', url: 'https://www.blockcon.co/', desc: 'Web3 & Blockchain Retreat' },
         { name: 'Venture Week', url: 'https://www.venture-week.com/', desc: 'Eventos de Startups LATAM' },
       ],
     },

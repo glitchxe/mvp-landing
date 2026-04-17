@@ -52,13 +52,22 @@ const MVPLogo = ({ className = '' }) => (
   </div>
 );
 
-// Nav-sized logo (image)
+// Nav-sized logo (horizontal layout)
 const MVPLogoNav = () => (
-  <img
-    src="/og-image.png"
-    alt="MVP | Max Venture Power"
-    className="h-10 w-auto"
-  />
+  <div className="flex items-center gap-3">
+    <span
+      className="font-black text-[#E5E5E5]"
+      style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '2.25rem', letterSpacing: '-0.03em', lineHeight: 1 }}
+    >
+      MVP
+    </span>
+    <span
+      className="hidden sm:block font-semibold uppercase text-[#C9A84C]"
+      style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.975rem', letterSpacing: '0.16em' }}
+    >
+      Max Venture Power
+    </span>
+  </div>
 );
 
 // ─── Scroll reveal ─────────────────────────────────────────────────────────────
@@ -616,17 +625,27 @@ export default function App() {
       </section>
 
       {/* ── PARTNERS ────────────────────────────────────────────────────────── */}
-      <section id="partnerships" className="py-24 border-t border-[#111]">
+      <section id="partnerships" className="py-28 md:py-36 border-t border-[#111]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <Reveal>
-            <p className="text-xl font-black text-[#C9A84C] uppercase tracking-[0.22em] mb-12 text-center">{tr.partners.label}</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#1A1A1A] max-w-2xl mx-auto">
+            <p className="text-xl font-black text-[#C9A84C] uppercase tracking-[0.22em] mb-4 text-center">{tr.partners.label}</p>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#E5E5E5] mb-16 text-center leading-[0.95]"
+              style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+              Building together.
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
               {tr.partners.items.map(({ name, url, desc }) => (
                 <a key={name} href={url} target="_blank" rel="noopener noreferrer"
-                  className="bg-[#0D0D0D] p-8 md:p-10 flex flex-col gap-2 hover:bg-[#111] transition-colors group"
+                  className="partner-card relative overflow-hidden bg-[#0D0D0D] border border-[#1F1F1F] p-10 md:p-12 flex flex-col gap-3 group transition-all duration-300 hover:border-[#C9A84C]/40 hover:scale-[1.02]"
                   style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                  <span className="text-[#E5E5E5] text-2xl font-black tracking-tight group-hover:text-[#C9A84C] transition-colors">{name}</span>
-                  <span className="text-[#777] text-sm">{desc}</span>
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                    style={{ background: 'linear-gradient(135deg, rgba(201,168,76,0.12) 0%, rgba(201,168,76,0.04) 60%, transparent 100%)' }} />
+                  <span className="partner-name relative text-3xl md:text-4xl font-black tracking-tight transition-all duration-300"
+                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                    {name}
+                  </span>
+                  <span className="relative text-[#888] text-base">{desc}</span>
+                  <span className="relative text-[#C9A84C] text-xs font-bold uppercase tracking-[0.14em] opacity-0 group-hover:opacity-100 transition-opacity duration-300">Visit →</span>
                 </a>
               ))}
             </div>

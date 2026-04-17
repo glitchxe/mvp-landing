@@ -228,3 +228,14 @@ input:focus {
     @apply font-sans;
   }
 }
+
+/* Partner card gradient text on hover */
+.partner-name {
+  color: #E5E5E5;
+}
+.partner-card:hover .partner-name {
+  background: linear-gradient(90deg, #C9A84C 0%, #F0D97A 50%, #C9A84C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

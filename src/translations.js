@@ -88,6 +88,35 @@ export const translations = {
       book: 'Book 15 Minutes',
       seeOptions: 'See Partnership Options',
     },
+    services: {
+      label: 'Services',
+      heading: 'How we work',
+      headingSub: 'with you.',
+      sub: "From focused 1:1s to curated cohorts — structured ways to engage with Cairo's intelligence and network.",
+      cta: 'Book a Session →',
+      items: [
+        {
+          num: '01',
+          name: 'Office Hours',
+          desc: 'Time-boxed 1:1 or small-group mentoring sessions for founders and operators who need sharp, focused feedback.',
+        },
+        {
+          num: '02',
+          name: 'Deal Rooms',
+          desc: 'Curated, private sessions — live or async — where a select group of investors reviews opportunities with full context.',
+        },
+        {
+          num: '03',
+          name: 'Custom Deep Dives',
+          desc: 'Bespoke research & analysis on a specific market, startup, or question your team needs answered before moving.',
+        },
+        {
+          num: '04',
+          name: 'Bootcamps & Cohorts',
+          desc: 'Time-bound, curriculum-driven programs where a small group moves through a structured journey together.',
+        },
+      ],
+    },
     partners: {
       label: 'Current Partners',
       items: [
@@ -206,6 +235,35 @@ export const translations = {
       services: ['Sponsorship', 'Afiliados', 'Co-Branding', 'Contenido', 'Eventos', 'Advisory LATAM'],
       book: 'Reserva 15 Minutos',
       seeOptions: 'Ver Opciones de Partnership',
+    },
+    services: {
+      label: 'Servicios',
+      heading: 'Cómo trabajamos',
+      headingSub: 'contigo.',
+      sub: 'Desde sesiones 1:1 hasta cohortes curados — formas estructuradas de acceder a la inteligencia y red de Cairo.',
+      cta: 'Reserva una Sesión →',
+      items: [
+        {
+          num: '01',
+          name: 'Office Hours',
+          desc: 'Sesiones de mentoría 1:1 o en grupos pequeños para fundadores y operadores que necesitan retroalimentación enfocada.',
+        },
+        {
+          num: '02',
+          name: 'Deal Rooms',
+          desc: 'Sesiones privadas y curadas — en vivo o asíncronas — donde un grupo selecto de inversores revisa oportunidades con contexto completo.',
+        },
+        {
+          num: '03',
+          name: 'Custom Deep Dives',
+          desc: 'Proyectos de investigación y análisis a medida sobre un mercado, startup o pregunta específica que tu equipo necesita responder.',
+        },
+        {
+          num: '04',
+          name: 'Bootcamps & Cohortes',
+          desc: 'Programas con currículo estructurado donde un grupo pequeño avanza junto en un viaje de aprendizaje definido.',
+        },
+      ],
     },
     partners: {
       label: 'Partners Actuales',

@@ -590,6 +590,166 @@ export default function App() {
         </div>
       </section>
 
+      {/* ── SERVICES ────────────────────────────────────────────────────────── */}
+      <section id="services" className="py-16 md:py-28 lg:py-36 border-t border-[#111]">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+
+          {/* Header row */}
+          <Reveal>
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
+              <div>
+                <p className="text-xl font-black text-[#C9A84C] uppercase tracking-[0.22em] mb-4">{tr.services.label}</p>
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#E5E5E5] leading-[0.92]"
+                  style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                  {tr.services.heading}<br />{tr.services.headingSub}
+                </h2>
+              </div>
+              <div className="md:max-w-xs">
+                <p className="text-[#777] text-base leading-relaxed mb-6">{tr.services.sub}</p>
+                <a href="https://calendly.com/cairoa" target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-[#C9A84C] text-sm font-bold uppercase tracking-[0.14em] border border-[#C9A84C]/40 px-5 py-3 hover:bg-[#C9A84C] hover:text-[#0D0D0D] transition-all duration-200 cursor-pointer"
+                  style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                  {tr.services.cta}
+                </a>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Services bento grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1A1A1A]">
+
+            {/* 01 — Office Hours */}
+            <Reveal delay={0}>
+              <div className="group relative bg-[#0A0A0A] p-10 md:p-12 flex flex-col gap-6 overflow-hidden cursor-default h-full transition-colors duration-300 hover:bg-[#0D0D0D]">
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  style={{ background: 'radial-gradient(ellipse at 0% 0%, rgba(201,168,76,0.08) 0%, transparent 70%)' }} />
+                <div className="flex items-start justify-between">
+                  <span className="text-[#C9A84C] text-xs font-black tracking-[0.25em] uppercase"
+                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                    {tr.services.items[0].num}
+                  </span>
+                  {/* Clock icon */}
+                  <svg className="w-7 h-7 text-[#2A2A2A] group-hover:text-[#C9A84C]/40 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9" /><path strokeLinecap="round" d="M12 7v5l3 3" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-black tracking-tight text-[#E5E5E5] mb-3 leading-tight"
+                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                    {tr.services.items[0].name}
+                  </h3>
+                  <p className="text-[#666] text-base leading-relaxed group-hover:text-[#888] transition-colors duration-300">
+                    {tr.services.items[0].desc}
+                  </p>
+                </div>
+                <div className="mt-auto pt-4 border-t border-[#1A1A1A] group-hover:border-[#C9A84C]/20 transition-colors duration-300">
+                  <span className="text-[#C9A84C] text-xs font-bold uppercase tracking-[0.14em] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Book session →
+                  </span>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* 02 — Deal Rooms */}
+            <Reveal delay={80}>
+              <div className="group relative bg-[#0A0A0A] p-10 md:p-12 flex flex-col gap-6 overflow-hidden cursor-default h-full transition-colors duration-300 hover:bg-[#0D0D0D]">
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  style={{ background: 'radial-gradient(ellipse at 100% 0%, rgba(201,168,76,0.08) 0%, transparent 70%)' }} />
+                <div className="flex items-start justify-between">
+                  <span className="text-[#C9A84C] text-xs font-black tracking-[0.25em] uppercase"
+                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                    {tr.services.items[1].num}
+                  </span>
+                  {/* Shield icon */}
+                  <svg className="w-7 h-7 text-[#2A2A2A] group-hover:text-[#C9A84C]/40 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3C12 3 5 6 5 11v5l7 4 7-4v-5c0-5-7-8-7-8z" /><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-black tracking-tight text-[#E5E5E5] mb-3 leading-tight"
+                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                    {tr.services.items[1].name}
+                  </h3>
+                  <p className="text-[#666] text-base leading-relaxed group-hover:text-[#888] transition-colors duration-300">
+                    {tr.services.items[1].desc}
+                  </p>
+                </div>
+                <div className="mt-auto pt-4 border-t border-[#1A1A1A] group-hover:border-[#C9A84C]/20 transition-colors duration-300">
+                  <span className="text-[#C9A84C] text-xs font-bold uppercase tracking-[0.14em] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Request access →
+                  </span>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* 03 — Custom Deep Dives */}
+            <Reveal delay={160}>
+              <div className="group relative bg-[#0A0A0A] p-10 md:p-12 flex flex-col gap-6 overflow-hidden cursor-default h-full transition-colors duration-300 hover:bg-[#0D0D0D]">
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  style={{ background: 'radial-gradient(ellipse at 0% 100%, rgba(201,168,76,0.08) 0%, transparent 70%)' }} />
+                <div className="flex items-start justify-between">
+                  <span className="text-[#C9A84C] text-xs font-black tracking-[0.25em] uppercase"
+                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                    {tr.services.items[2].num}
+                  </span>
+                  {/* Search/magnify icon */}
+                  <svg className="w-7 h-7 text-[#2A2A2A] group-hover:text-[#C9A84C]/40 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="7" /><path strokeLinecap="round" d="M21 21l-4.35-4.35" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-black tracking-tight text-[#E5E5E5] mb-3 leading-tight"
+                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                    {tr.services.items[2].name}
+                  </h3>
+                  <p className="text-[#666] text-base leading-relaxed group-hover:text-[#888] transition-colors duration-300">
+                    {tr.services.items[2].desc}
+                  </p>
+                </div>
+                <div className="mt-auto pt-4 border-t border-[#1A1A1A] group-hover:border-[#C9A84C]/20 transition-colors duration-300">
+                  <span className="text-[#C9A84C] text-xs font-bold uppercase tracking-[0.14em] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Start a project →
+                  </span>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* 04 — Bootcamps & Cohorts */}
+            <Reveal delay={240}>
+              <div className="group relative bg-[#0A0A0A] p-10 md:p-12 flex flex-col gap-6 overflow-hidden cursor-default h-full transition-colors duration-300 hover:bg-[#0D0D0D]">
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  style={{ background: 'radial-gradient(ellipse at 100% 100%, rgba(201,168,76,0.08) 0%, transparent 70%)' }} />
+                <div className="flex items-start justify-between">
+                  <span className="text-[#C9A84C] text-xs font-black tracking-[0.25em] uppercase"
+                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                    {tr.services.items[3].num}
+                  </span>
+                  {/* Users/cohort icon */}
+                  <svg className="w-7 h-7 text-[#2A2A2A] group-hover:text-[#C9A84C]/40 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 20c0-2.21-2.24-4-5-4s-5 1.79-5 4" /><circle cx="12" cy="10" r="3" /><path strokeLinecap="round" strokeLinejoin="round" d="M23 20c0-1.87-1.57-3.43-3.76-3.87M1 20c0-1.87 1.57-3.43 3.76-3.87" /><path strokeLinecap="round" strokeLinejoin="round" d="M19.24 6.13a3 3 0 0 1 0 5.74M4.76 6.13a3 3 0 0 0 0 5.74" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-black tracking-tight text-[#E5E5E5] mb-3 leading-tight"
+                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                    {tr.services.items[3].name}
+                  </h3>
+                  <p className="text-[#666] text-base leading-relaxed group-hover:text-[#888] transition-colors duration-300">
+                    {tr.services.items[3].desc}
+                  </p>
+                </div>
+                <div className="mt-auto pt-4 border-t border-[#1A1A1A] group-hover:border-[#C9A84C]/20 transition-colors duration-300">
+                  <span className="text-[#C9A84C] text-xs font-bold uppercase tracking-[0.14em] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Join next cohort →
+                  </span>
+                </div>
+              </div>
+            </Reveal>
+
+          </div>
+        </div>
+      </section>
+
       {/* ── FOR FOUNDERS + BUSINESSES ───────────────────────────────────────── */}
       <section id="founders" className="py-16 md:py-28 lg:py-36 border-t border-[#111]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">

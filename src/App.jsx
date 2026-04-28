@@ -130,7 +130,7 @@ const EmailInput = ({ placeholder = 'Enter your email', buttonText = 'Join Free'
       <input
         type="email" value={email} onChange={e => setEmail(e.target.value)}
         placeholder={placeholder} required aria-label="Email address"
-        className={`flex-1 px-5 py-3.5 text-sm font-medium focus:outline-none transition-colors border-r-0 ${
+        className={`flex-1 px-5 py-3.5 text-sm font-medium focus:outline-none transition-colors sm:border-r-0 ${
           isDark
             ? 'bg-[#111] border border-[#2A2A2A] text-[#E5E5E5] placeholder-[#555] focus:border-[#C9A84C]'
             : 'bg-white border border-[#D0C9BB] text-[#0D0D0D] placeholder-[#999] focus:border-[#C9A84C]'
@@ -479,7 +479,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <Reveal>
             <p className="text-xl font-black text-[#C9A84C] uppercase tracking-[0.22em] mb-4">{tr.whatYouGet.label}</p>
-            <h2 className="text-5xl md:text-6xl font-black tracking-tight text-[#E5E5E5] mb-16 leading-[0.95]"
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#E5E5E5] mb-16 leading-[0.95]"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
               {tr.whatYouGet.heading}<br /><span className="text-[#888]">{tr.whatYouGet.headingSub}</span>
             </h2>
@@ -527,7 +527,7 @@ export default function App() {
       <section className="py-16 md:py-28 lg:py-36 border-t border-[#111]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <Reveal>
-            <h2 className="text-5xl md:text-6xl font-black tracking-tight text-[#E5E5E5] mb-20 leading-[0.95]"
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#E5E5E5] mb-20 leading-[0.95]"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
               {tr.proof.heading}<br /><span className="text-[#888]">{tr.proof.headingSub}</span>
             </h2>
@@ -576,7 +576,7 @@ export default function App() {
               </span>
               <span className="text-[10px] text-[#C9A84C] font-black uppercase tracking-[0.2em]">{tr.pipeline.liveLabel}</span>
             </div>
-            <h2 className="text-5xl md:text-6xl font-black tracking-tight text-[#E5E5E5] mb-4 leading-[0.95]"
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#E5E5E5] mb-4 leading-[0.95]"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
               {tr.pipeline.heading}
             </h2>
@@ -604,7 +604,7 @@ export default function App() {
                   {tr.founders.heading}<br />{tr.founders.headingSub}
                 </h2>
                 <p className="text-[#888] text-base mb-8 leading-relaxed">{tr.founders.description}</p>
-                <EmailInput placeholder="your@email.com" buttonText={tr.founders.joinFree} className="mb-6 max-w-sm" />
+                <EmailInput placeholder="your@email.com" buttonText={tr.founders.joinFree} className="mb-6 w-full sm:max-w-sm" />
                 <div className="flex flex-col gap-3 mt-6 pt-6 border-t border-[#1A1A1A]">
                   <a href="https://forms.gle/CaP1GZQE2XUESm6u5" target="_blank" rel="noopener noreferrer"
                     className="text-sm text-[#C9A84C] hover:underline font-semibold">
@@ -653,32 +653,58 @@ export default function App() {
       </section>
 
       {/* ── PARTNERS ────────────────────────────────────────────────────────── */}
-      <section id="partnerships" className="py-28 md:py-36 border-t border-[#111]">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <section id="partnerships" className="py-16 md:py-28 lg:py-36 border-t border-[#111] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-16">
           <Reveal>
             <p className="text-xl font-black text-[#C9A84C] uppercase tracking-[0.22em] mb-4 text-center">{tr.partners.label}</p>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#E5E5E5] mb-16 text-center leading-[0.95]"
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-[#E5E5E5] text-center leading-[0.95]"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
               Building together.
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
-              {tr.partners.items.map(({ name, url, desc }) => (
-                <a key={name} href={url} target="_blank" rel="noopener noreferrer"
-                  className="partner-card relative overflow-hidden bg-[#0D0D0D] border border-[#1F1F1F] p-10 md:p-12 flex flex-col gap-3 group transition-all duration-300 hover:border-[#C9A84C]/40 hover:scale-[1.02]"
+          </Reveal>
+        </div>
+
+        {/* Marquee track — fades at edges */}
+        <div className="relative">
+          {/* Left fade */}
+          <div className="absolute left-0 top-0 h-full w-24 md:w-40 z-10 pointer-events-none"
+            style={{ background: 'linear-gradient(to right, #0A0A0A, transparent)' }} />
+          {/* Right fade */}
+          <div className="absolute right-0 top-0 h-full w-24 md:w-40 z-10 pointer-events-none"
+            style={{ background: 'linear-gradient(to left, #0A0A0A, transparent)' }} />
+
+          <div className="flex overflow-hidden">
+            <div className="flex gap-4 animate-marquee">
+              {[...tr.partners.items, ...tr.partners.items, ...tr.partners.items].map(({ name, url, desc }, i) => (
+                <a key={`${name}-${i}`} href={url} target="_blank" rel="noopener noreferrer"
+                  className="partner-card relative overflow-hidden bg-[#0D0D0D] border border-[#1F1F1F] p-8 md:p-10 flex flex-col gap-3 group transition-all duration-300 hover:border-[#C9A84C]/40 flex-shrink-0 w-64 md:w-80"
                   style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                     style={{ background: 'linear-gradient(135deg, rgba(201,168,76,0.12) 0%, rgba(201,168,76,0.04) 60%, transparent 100%)' }} />
-                  <span className="partner-name relative text-3xl md:text-4xl font-black tracking-tight transition-all duration-300"
+                  <span className="partner-name relative text-2xl md:text-3xl font-black tracking-tight transition-all duration-300"
                     style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
                     {name}
                   </span>
-                  <span className="relative text-[#888] text-base">{desc}</span>
+                  <span className="relative text-[#888] text-sm">{desc}</span>
                   <span className="relative text-[#C9A84C] text-xs font-bold uppercase tracking-[0.14em] opacity-0 group-hover:opacity-100 transition-opacity duration-300">Visit →</span>
                 </a>
               ))}
             </div>
-          </Reveal>
+          </div>
         </div>
+
+        <style>{`
+          @keyframes marquee {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-33.333%); }
+          }
+          .animate-marquee {
+            animation: marquee 22s linear infinite;
+          }
+          .animate-marquee:hover {
+            animation-play-state: paused;
+          }
+        `}</style>
       </section>
 
       {/* ── FOOTER ──────────────────────────────────────────────────────────── */}

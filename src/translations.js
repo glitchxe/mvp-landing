@@ -92,7 +92,9 @@ export const translations = {
       label: 'Current Partners',
       items: [
         { name: 'BlockCon Global', url: 'https://www.blockcon.co/', desc: 'Web3 & Blockchain Retreat' },
-        { name: 'Venture Week', url: 'https://www.venture-week.com/', desc: 'LATAM Startup Events' },
+        { name: 'Venture Week', url: 'https://www.venture-week.com/', desc: 'US & LATAM Startup Events' },
+        { name: 'Levuka Venture Labs', url: 'https://www.levukalabs.com/', desc: 'Premier Venture Engineering' },
+        { name: 'Founder Institute Caribbean', url: 'https://fi.co/caribbean', desc: 'Founder Institute Caribbean' },
       ],
     },
     footer: {
@@ -209,7 +211,9 @@ export const translations = {
       label: 'Partners Actuales',
       items: [
         { name: 'BlockCon Global', url: 'https://www.blockcon.co/', desc: 'Web3 & Blockchain Retreat' },
-        { name: 'Venture Week', url: 'https://www.venture-week.com/', desc: 'Eventos de Startups LATAM' },
+        { name: 'Venture Week', url: 'https://www.venture-week.com/', desc: 'Eventos de Startups US & LATAM' },
+        { name: 'Levuka Venture Labs', url: 'https://www.levukalabs.com/', desc: 'Premier Venture Engineering' },
+        { name: 'Founder Institute Caribbean', url: 'https://fi.co/caribbean', desc: 'Founder Institute Caribbean' },
       ],
     },
     footer: {

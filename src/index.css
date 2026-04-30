@@ -15,8 +15,8 @@
   --color-bg-secondary: #141414;
   --color-border-subtle: #1F1F1F;
   --color-border-light: #2A2A2A;
-  --color-accent: #C9A84C;
-  --color-accent-hover: #D4B45C;
+  --color-accent: #f03a28;
+  --color-accent-hover: #f55040;
   --color-text-primary: #E5E5E5;
   --color-text-secondary: #6B6B6B;
   --background: oklch(1 0 0);
@@ -247,7 +247,7 @@ input:focus {
   color: #E5E5E5;
 }
 .partner-card:hover .partner-name {
-  background: linear-gradient(90deg, #C9A84C 0%, #F0D97A 50%, #C9A84C 100%);
+  background: linear-gradient(90deg, #f03a28 0%, #f87a6e 50%, #f03a28 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

@@ -27,7 +27,7 @@ function HeroContent({ title, titleHighlight, description, subtitle, primaryActi
         </motion.h1>
         {titleHighlight && (
           <motion.p
-            className="font-heading text-3xl font-black tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.05] text-[#C9A84C]"
+            className="font-heading text-3xl font-black tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.05] text-[#f03a28]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.8, ease }}
@@ -37,7 +37,7 @@ function HeroContent({ title, titleHighlight, description, subtitle, primaryActi
         )}
       </div>
       <motion.p
-        className="max-w-[42rem] leading-relaxed text-[#999] sm:text-xl"
+        className="max-w-[42rem] leading-relaxed text-[#999] text-base sm:text-xl"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.8, ease }}
@@ -56,7 +56,7 @@ function HeroContent({ title, titleHighlight, description, subtitle, primaryActi
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              "inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#C9A84C] text-[#0D0D0D] font-bold text-base hover:bg-[#D4B45C] transition-colors cursor-pointer w-full sm:w-auto"
+              "inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#f03a28] text-[#0D0D0D] font-bold text-base hover:bg-[#f55040] transition-colors cursor-pointer w-full sm:w-auto"
             )}
           >
             {primaryAction.icon}
@@ -67,7 +67,7 @@ function HeroContent({ title, titleHighlight, description, subtitle, primaryActi
           <a
             href={secondaryAction.href}
             className={cn(
-              "inline-flex items-center justify-center gap-2 px-8 py-4 border border-[#2A2A2A] text-[#E5E5E5] font-semibold text-base hover:border-[#C9A84C] transition-colors cursor-pointer w-full sm:w-auto"
+              "inline-flex items-center justify-center gap-2 px-8 py-4 border border-[#2A2A2A] text-[#E5E5E5] font-semibold text-base hover:border-[#f03a28] transition-colors cursor-pointer w-full sm:w-auto"
             )}
           >
             {secondaryAction.icon}

@@ -60,7 +60,7 @@ const MVPLogo = ({ className = '' }) => (
       MVP
     </span>
     <span
-      className="font-semibold uppercase text-[#C9A84C]"
+      className="font-semibold uppercase text-[#f03a28]"
       style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '1.05rem', letterSpacing: '0.18em' }}
     >
       Max Venture Power
@@ -78,7 +78,7 @@ const MVPLogoNav = () => (
       MVP
     </span>
     <span
-      className="hidden sm:block font-semibold uppercase text-[#C9A84C]"
+      className="hidden sm:block font-semibold uppercase text-[#f03a28]"
       style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.975rem', letterSpacing: '0.16em' }}
     >
       Max Venture Power
@@ -132,12 +132,12 @@ const EmailInput = ({ placeholder = 'Enter your email', buttonText = 'Join Free'
         placeholder={placeholder} required aria-label="Email address"
         className={`flex-1 px-5 py-3.5 text-sm font-medium focus:outline-none transition-colors sm:border-r-0 ${
           isDark
-            ? 'bg-[#111] border border-[#2A2A2A] text-[#E5E5E5] placeholder-[#555] focus:border-[#C9A84C]'
-            : 'bg-white border border-[#D0C9BB] text-[#0D0D0D] placeholder-[#999] focus:border-[#C9A84C]'
+            ? 'bg-[#111] border border-[#2A2A2A] text-[#E5E5E5] placeholder-[#555] focus:border-[#f03a28]'
+            : 'bg-white border border-[#D0C9BB] text-[#0D0D0D] placeholder-[#999] focus:border-[#f03a28]'
         }`}
       />
       <button type="submit"
-        className="px-6 py-3.5 bg-[#C9A84C] text-[#0D0D0D] font-bold text-sm hover:bg-[#D4B45C] transition-colors whitespace-nowrap cursor-pointer tracking-wide"
+        className="px-6 py-3.5 bg-[#f03a28] text-[#0D0D0D] font-bold text-sm hover:bg-[#f55040] transition-colors whitespace-nowrap cursor-pointer tracking-wide"
         style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
         {buttonText}
       </button>
@@ -209,20 +209,20 @@ const PipelineDashboard = ({ tr }) => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-6 py-4 border-b border-[#1F1F1F] bg-[#111]">
         <div className="flex items-center gap-3">
           <span className="relative flex h-2.5 w-2.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C9A84C] opacity-60"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#C9A84C]"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#f03a28] opacity-60"></span>
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#f03a28]"></span>
           </span>
           <span className="text-[#E5E5E5] font-semibold text-sm tracking-wide" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
             {tr.activeDeals}
           </span>
           {!loading && !error && (
-            <span className="px-2 py-0.5 bg-[#C9A84C]/10 text-[#C9A84C] text-xs font-bold">
+            <span className="px-2 py-0.5 bg-[#f03a28]/10 text-[#f03a28] text-xs font-bold">
               {filtered.length} {filtered.length !== 1 ? tr.startupPlural : tr.startupSingular}
             </span>
           )}
         </div>
         <a href="https://forms.gle/CaP1GZQE2XUESm6u5" target="_blank" rel="noopener noreferrer"
-          className="text-xs text-[#C9A84C] hover:underline shrink-0 font-medium">
+          className="text-xs text-[#f03a28] hover:underline shrink-0 font-medium">
           {tr.submitStartup}
         </a>
       </div>
@@ -234,7 +234,7 @@ const PipelineDashboard = ({ tr }) => {
             <button key={s} onClick={() => setFilter(s)}
               className={`px-3 py-1 text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
                 filter === s
-                  ? 'bg-[#C9A84C] text-[#0D0D0D]'
+                  ? 'bg-[#f03a28] text-[#0D0D0D]'
                   : 'bg-[#1A1A1A] text-[#6B6B6B] hover:text-[#E5E5E5] border border-[#2A2A2A]'
               }`}
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
@@ -266,7 +266,7 @@ const PipelineDashboard = ({ tr }) => {
         <div className="px-6 py-12 text-center">
           <p className="text-[#777] text-sm mb-3">{tr.noData}</p>
           <a href="https://forms.gle/CaP1GZQE2XUESm6u5" target="_blank" rel="noopener noreferrer"
-            className="text-[#C9A84C] text-sm hover:underline">
+            className="text-[#f03a28] text-sm hover:underline">
             {tr.submitLink}
           </a>
         </div>
@@ -290,7 +290,7 @@ const PipelineDashboard = ({ tr }) => {
               </span>
             </div>
             <div className="col-span-2 text-[#888] text-sm self-center">{deal.stage}</div>
-            <div className="col-span-2 text-[#C9A84C] font-bold text-sm self-center" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{deal.amount}</div>
+            <div className="col-span-2 text-[#f03a28] font-bold text-sm self-center" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{deal.amount}</div>
             <div className="col-span-5 text-[#888] text-sm self-center line-clamp-2 group-hover:text-[#999] transition-colors pr-2">{deal.problem}</div>
           </button>
 
@@ -301,7 +301,7 @@ const PipelineDashboard = ({ tr }) => {
           >
             <div className="flex items-center justify-between mb-2">
               <span className={`inline-block px-2 py-0.5 text-[10px] font-bold tracking-wide uppercase rounded-sm ${getSectorColor(deal.sector)}`}>{deal.sector}</span>
-              <span className="text-[#C9A84C] font-bold text-sm" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{deal.amount}</span>
+              <span className="text-[#f03a28] font-bold text-sm" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{deal.amount}</span>
             </div>
             <div className="text-[#777] text-xs mb-1">{deal.stage}</div>
             <div className="text-[#888] text-sm line-clamp-2">{deal.problem}</div>
@@ -315,7 +315,7 @@ const PipelineDashboard = ({ tr }) => {
               exit={{ opacity: 0, height: 0 }}
               className="px-6 py-5 bg-[#0D0D0D] border-b border-[#1F1F1F]"
             >
-              <p className="text-[10px] text-[#C9A84C] uppercase tracking-[0.14em] mb-2 font-bold">{tr.elProblema}</p>
+              <p className="text-[10px] text-[#f03a28] uppercase tracking-[0.14em] mb-2 font-bold">{tr.elProblema}</p>
               <p className="text-[#999] text-sm leading-relaxed max-w-3xl">{deal.problem}</p>
             </motion.div>
           )}
@@ -326,7 +326,7 @@ const PipelineDashboard = ({ tr }) => {
       <div className="px-6 py-4 border-t border-[#1A1A1A] flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-[#080808]">
         <p className="text-[#888] text-xs">{tr.updatedWeekly}</p>
         <a href="https://forms.gle/CaP1GZQE2XUESm6u5" target="_blank" rel="noopener noreferrer"
-          className="text-[#C9A84C] text-xs hover:underline font-medium shrink-0">
+          className="text-[#f03a28] text-xs hover:underline font-medium shrink-0">
           {tr.raisingSubmit}
         </a>
       </div>
@@ -343,16 +343,16 @@ const HeroEmailCard = ({ tr }) => (
     transition={{ delay: 0.4, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
     className="relative"
   >
-    <div className="absolute -inset-px bg-gradient-to-br from-[#C9A84C]/20 via-transparent to-transparent rounded-sm pointer-events-none" />
+    <div className="absolute -inset-px bg-gradient-to-br from-[#f03a28]/20 via-transparent to-transparent rounded-sm pointer-events-none" />
     <div className="border border-[#1F1F1F] bg-[#0D0D0D] p-6 space-y-4">
       <div className="flex items-center justify-between mb-2">
-        <span className="text-xs uppercase tracking-[0.14em] text-[#C9A84C] font-bold">{tr.label}</span>
+        <span className="text-xs uppercase tracking-[0.14em] text-[#f03a28] font-bold">{tr.label}</span>
         <span className="text-xs text-[#888]">{tr.weekly}</span>
       </div>
       <div className="h-px bg-[#1F1F1F]" />
       {tr.rows.map(({ label, text }) => (
         <div key={label} className="flex items-start gap-3">
-          <span className="text-xs font-black text-[#C9A84C] tracking-widest w-16 shrink-0 pt-0.5"
+          <span className="text-xs font-black text-[#f03a28] tracking-widest w-16 shrink-0 pt-0.5"
             style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{label}</span>
           <span className="text-[#888] text-sm leading-relaxed">{text}</span>
         </div>
@@ -404,7 +404,7 @@ export default function App() {
               {lang === 'en' ? 'ES' : 'EN'}
             </button>
             <a href="#pipeline"
-              className="active-deals-btn hidden sm:flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-wide text-[#0D0D0D] bg-[#C9A84C] hover:bg-[#D4B45C] transition-colors cursor-pointer"
+              className="active-deals-btn hidden sm:flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-wide text-[#0D0D0D] bg-[#f03a28] hover:bg-[#f55040] transition-colors cursor-pointer"
               style={{ fontFamily: 'Space Grotesk, sans-serif', letterSpacing: '0.08em' }}>
               <span className="relative flex h-2 w-2 shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0D0D0D] opacity-60" style={{ animationDuration: '2s' }}></span>
@@ -414,7 +414,7 @@ export default function App() {
             </a>
             <a href="https://mvpower.beehiiv.com"
               target="_blank" rel="noopener noreferrer"
-              className="px-4 py-2 border border-[#C9A84C] text-[#C9A84C] text-xs font-bold hover:bg-[#C9A84C] hover:text-[#0D0D0D] transition-all tracking-wide uppercase"
+              className="px-4 py-2 border border-[#f03a28] text-[#f03a28] text-xs font-bold hover:bg-[#f03a28] hover:text-[#0D0D0D] transition-all tracking-wide uppercase"
               style={{ fontFamily: 'Space Grotesk, sans-serif', letterSpacing: '0.08em' }}>
               {tr.nav.join}
             </a>
@@ -449,13 +449,13 @@ export default function App() {
       <section className="py-16 md:py-28 lg:py-36 border-t border-[#111]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <Reveal>
-            <p className="text-xl font-black text-[#C9A84C] uppercase tracking-[0.22em] mb-10">{tr.pain.label}</p>
+            <p className="text-xl font-black text-[#f03a28] uppercase tracking-[0.22em] mb-10">{tr.pain.label}</p>
           </Reveal>
           <div className="grid md:grid-cols-2 gap-px bg-[#111] mb-16">
             {tr.pain.items.map((text, i) => (
               <Reveal key={i} delay={i * 60}>
                 <div className="bg-[#0D0D0D] p-8 md:p-10 group hover:bg-[#111] transition-colors">
-                  <span className="text-[#C9A84C]/30 font-black text-5xl leading-none block mb-4"
+                  <span className="text-[#f03a28]/30 font-black text-5xl leading-none block mb-4"
                     style={{ fontFamily: 'Space Grotesk, sans-serif' }}>0{i + 1}</span>
                   <p className="text-[#E5E5E5] text-lg md:text-xl leading-snug font-medium group-hover:text-white transition-colors">{text}</p>
                 </div>
@@ -463,7 +463,7 @@ export default function App() {
             ))}
           </div>
           <Reveal delay={200}>
-            <div className="border-l-2 border-[#C9A84C]/30 pl-8 max-w-2xl">
+            <div className="border-l-2 border-[#f03a28]/30 pl-8 max-w-2xl">
               <p className="text-2xl md:text-3xl text-[#E5E5E5] leading-tight font-medium"
                 style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
                 {tr.pain.quote}<br />
@@ -478,7 +478,7 @@ export default function App() {
       <section className="py-16 md:py-28 lg:py-36 border-t border-[#111]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <Reveal>
-            <p className="text-xl font-black text-[#C9A84C] uppercase tracking-[0.22em] mb-4">{tr.whatYouGet.label}</p>
+            <p className="text-xl font-black text-[#f03a28] uppercase tracking-[0.22em] mb-4">{tr.whatYouGet.label}</p>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#E5E5E5] mb-16 leading-[0.95]"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
               {tr.whatYouGet.heading}<br /><span className="text-[#888]">{tr.whatYouGet.headingSub}</span>
@@ -490,7 +490,7 @@ export default function App() {
               <Reveal key={label} delay={i * 80}>
                 <div className="bg-[#0D0D0D] p-8 md:p-10 h-full hover:bg-[#0F0F0F] transition-colors group">
                   <span className={`inline-block px-3 py-1 text-[10px] font-black tracking-[0.15em] uppercase mb-6 ${
-                    gold ? 'bg-[#C9A84C] text-[#0D0D0D]' : 'border border-[#2A2A2A] text-[#888]'
+                    gold ? 'bg-[#f03a28] text-[#0D0D0D]' : 'border border-[#2A2A2A] text-[#888]'
                   }`}
                     style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
                     {label}
@@ -506,7 +506,7 @@ export default function App() {
           <Reveal delay={400}>
             <a href="https://mvpower.beehiiv.com"
               target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 text-[#C9A84C] text-base font-bold hover:gap-5 transition-all mt-12"
+              className="inline-flex items-center gap-3 text-[#f03a28] text-base font-bold hover:gap-5 transition-all mt-12"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
               {tr.whatYouGet.cta}
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -538,7 +538,7 @@ export default function App() {
             {tr.proof.stats.map(({ n, l }, i) => (
               <Reveal key={l} delay={i * 80}>
                 <div className="bg-[#0D0D0D] p-8 text-center hover:bg-[#0F0F0F] transition-colors">
-                  <div className="text-4xl md:text-5xl font-black text-[#C9A84C] mb-2 leading-none"
+                  <div className="text-4xl md:text-5xl font-black text-[#f03a28] mb-2 leading-none"
                     style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{n}</div>
                   <div className="text-[#999] text-sm uppercase tracking-[0.12em] font-semibold">{l}</div>
                 </div>
@@ -551,7 +551,7 @@ export default function App() {
             {tr.proof.testimonials.map(({ quote, author, company }, i) => (
               <Reveal key={author} delay={i * 100}>
                 <div className="bg-[#0D0D0D] p-8 md:p-10 h-full hover:bg-[#0F0F0F] transition-colors">
-                  <p className="text-[#C9A84C]/20 text-6xl font-black leading-none mb-4"
+                  <p className="text-[#f03a28]/20 text-6xl font-black leading-none mb-4"
                     style={{ fontFamily: 'Space Grotesk, sans-serif' }}>"</p>
                   <p className="text-[#999] text-lg leading-relaxed italic mb-6">"{quote}"</p>
                   <div>
@@ -571,10 +571,10 @@ export default function App() {
           <Reveal>
             <div className="flex items-center gap-3 mb-3">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C9A84C] opacity-60"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#C9A84C]"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#f03a28] opacity-60"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#f03a28]"></span>
               </span>
-              <span className="text-[10px] text-[#C9A84C] font-black uppercase tracking-[0.2em]">{tr.pipeline.liveLabel}</span>
+              <span className="text-[10px] text-[#f03a28] font-black uppercase tracking-[0.2em]">{tr.pipeline.liveLabel}</span>
             </div>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#E5E5E5] mb-4 leading-[0.95]"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
@@ -598,7 +598,7 @@ export default function App() {
           <Reveal>
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
               <div>
-                <p className="text-xl font-black text-[#C9A84C] uppercase tracking-[0.22em] mb-4">{tr.services.label}</p>
+                <p className="text-xl font-black text-[#f03a28] uppercase tracking-[0.22em] mb-4">{tr.services.label}</p>
                 <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#E5E5E5] leading-[0.92]"
                   style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
                   {tr.services.heading}<br />{tr.services.headingSub}
@@ -607,7 +607,7 @@ export default function App() {
               <div className="md:max-w-xs">
                 <p className="text-[#777] text-base leading-relaxed mb-6">{tr.services.sub}</p>
                 <a href="https://calendly.com/cairoa" target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-[#C9A84C] text-sm font-bold uppercase tracking-[0.14em] border border-[#C9A84C]/40 px-5 py-3 hover:bg-[#C9A84C] hover:text-[#0D0D0D] transition-all duration-200 cursor-pointer"
+                  className="inline-flex items-center gap-2 text-[#f03a28] text-sm font-bold uppercase tracking-[0.14em] border border-[#f03a28]/40 px-5 py-3 hover:bg-[#f03a28] hover:text-[#0D0D0D] transition-all duration-200 cursor-pointer"
                   style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
                   {tr.services.cta}
                 </a>
@@ -622,14 +622,14 @@ export default function App() {
             <Reveal delay={0}>
               <div className="group relative bg-[#0A0A0A] p-10 md:p-12 flex flex-col gap-6 overflow-hidden cursor-default h-full transition-colors duration-300 hover:bg-[#0D0D0D]">
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{ background: 'radial-gradient(ellipse at 0% 0%, rgba(201,168,76,0.08) 0%, transparent 70%)' }} />
+                  style={{ background: 'radial-gradient(ellipse at 0% 0%, rgba(240,58,40,0.08) 0%, transparent 70%)' }} />
                 <div className="flex items-start justify-between">
-                  <span className="text-[#C9A84C] text-xs font-black tracking-[0.25em] uppercase"
+                  <span className="text-[#f03a28] text-xs font-black tracking-[0.25em] uppercase"
                     style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
                     {tr.services.items[0].num}
                   </span>
                   {/* Clock icon */}
-                  <svg className="w-7 h-7 text-[#2A2A2A] group-hover:text-[#C9A84C]/40 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <svg className="w-7 h-7 text-[#2A2A2A] group-hover:text-[#f03a28]/40 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="9" /><path strokeLinecap="round" d="M12 7v5l3 3" />
                   </svg>
                 </div>
@@ -642,8 +642,8 @@ export default function App() {
                     {tr.services.items[0].desc}
                   </p>
                 </div>
-                <div className="mt-auto pt-4 border-t border-[#1A1A1A] group-hover:border-[#C9A84C]/20 transition-colors duration-300">
-                  <span className="text-[#C9A84C] text-xs font-bold uppercase tracking-[0.14em] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="mt-auto pt-4 border-t border-[#1A1A1A] group-hover:border-[#f03a28]/20 transition-colors duration-300">
+                  <span className="text-[#f03a28] text-xs font-bold uppercase tracking-[0.14em] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     Book session →
                   </span>
                 </div>
@@ -654,14 +654,14 @@ export default function App() {
             <Reveal delay={80}>
               <div className="group relative bg-[#0A0A0A] p-10 md:p-12 flex flex-col gap-6 overflow-hidden cursor-default h-full transition-colors duration-300 hover:bg-[#0D0D0D]">
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{ background: 'radial-gradient(ellipse at 100% 0%, rgba(201,168,76,0.08) 0%, transparent 70%)' }} />
+                  style={{ background: 'radial-gradient(ellipse at 100% 0%, rgba(240,58,40,0.08) 0%, transparent 70%)' }} />
                 <div className="flex items-start justify-between">
-                  <span className="text-[#C9A84C] text-xs font-black tracking-[0.25em] uppercase"
+                  <span className="text-[#f03a28] text-xs font-black tracking-[0.25em] uppercase"
                     style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
                     {tr.services.items[1].num}
                   </span>
                   {/* Shield icon */}
-                  <svg className="w-7 h-7 text-[#2A2A2A] group-hover:text-[#C9A84C]/40 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <svg className="w-7 h-7 text-[#2A2A2A] group-hover:text-[#f03a28]/40 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 3C12 3 5 6 5 11v5l7 4 7-4v-5c0-5-7-8-7-8z" /><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4" />
                   </svg>
                 </div>
@@ -674,8 +674,8 @@ export default function App() {
                     {tr.services.items[1].desc}
                   </p>
                 </div>
-                <div className="mt-auto pt-4 border-t border-[#1A1A1A] group-hover:border-[#C9A84C]/20 transition-colors duration-300">
-                  <span className="text-[#C9A84C] text-xs font-bold uppercase tracking-[0.14em] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="mt-auto pt-4 border-t border-[#1A1A1A] group-hover:border-[#f03a28]/20 transition-colors duration-300">
+                  <span className="text-[#f03a28] text-xs font-bold uppercase tracking-[0.14em] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     Request access →
                   </span>
                 </div>
@@ -686,14 +686,14 @@ export default function App() {
             <Reveal delay={160}>
               <div className="group relative bg-[#0A0A0A] p-10 md:p-12 flex flex-col gap-6 overflow-hidden cursor-default h-full transition-colors duration-300 hover:bg-[#0D0D0D]">
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{ background: 'radial-gradient(ellipse at 0% 100%, rgba(201,168,76,0.08) 0%, transparent 70%)' }} />
+                  style={{ background: 'radial-gradient(ellipse at 0% 100%, rgba(240,58,40,0.08) 0%, transparent 70%)' }} />
                 <div className="flex items-start justify-between">
-                  <span className="text-[#C9A84C] text-xs font-black tracking-[0.25em] uppercase"
+                  <span className="text-[#f03a28] text-xs font-black tracking-[0.25em] uppercase"
                     style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
                     {tr.services.items[2].num}
                   </span>
                   {/* Search/magnify icon */}
-                  <svg className="w-7 h-7 text-[#2A2A2A] group-hover:text-[#C9A84C]/40 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <svg className="w-7 h-7 text-[#2A2A2A] group-hover:text-[#f03a28]/40 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                     <circle cx="11" cy="11" r="7" /><path strokeLinecap="round" d="M21 21l-4.35-4.35" />
                   </svg>
                 </div>
@@ -706,8 +706,8 @@ export default function App() {
                     {tr.services.items[2].desc}
                   </p>
                 </div>
-                <div className="mt-auto pt-4 border-t border-[#1A1A1A] group-hover:border-[#C9A84C]/20 transition-colors duration-300">
-                  <span className="text-[#C9A84C] text-xs font-bold uppercase tracking-[0.14em] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="mt-auto pt-4 border-t border-[#1A1A1A] group-hover:border-[#f03a28]/20 transition-colors duration-300">
+                  <span className="text-[#f03a28] text-xs font-bold uppercase tracking-[0.14em] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     Start a project →
                   </span>
                 </div>
@@ -718,14 +718,14 @@ export default function App() {
             <Reveal delay={240}>
               <div className="group relative bg-[#0A0A0A] p-10 md:p-12 flex flex-col gap-6 overflow-hidden cursor-default h-full transition-colors duration-300 hover:bg-[#0D0D0D]">
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{ background: 'radial-gradient(ellipse at 100% 100%, rgba(201,168,76,0.08) 0%, transparent 70%)' }} />
+                  style={{ background: 'radial-gradient(ellipse at 100% 100%, rgba(240,58,40,0.08) 0%, transparent 70%)' }} />
                 <div className="flex items-start justify-between">
-                  <span className="text-[#C9A84C] text-xs font-black tracking-[0.25em] uppercase"
+                  <span className="text-[#f03a28] text-xs font-black tracking-[0.25em] uppercase"
                     style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
                     {tr.services.items[3].num}
                   </span>
                   {/* Users/cohort icon */}
-                  <svg className="w-7 h-7 text-[#2A2A2A] group-hover:text-[#C9A84C]/40 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <svg className="w-7 h-7 text-[#2A2A2A] group-hover:text-[#f03a28]/40 transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 20c0-2.21-2.24-4-5-4s-5 1.79-5 4" /><circle cx="12" cy="10" r="3" /><path strokeLinecap="round" strokeLinejoin="round" d="M23 20c0-1.87-1.57-3.43-3.76-3.87M1 20c0-1.87 1.57-3.43 3.76-3.87" /><path strokeLinecap="round" strokeLinejoin="round" d="M19.24 6.13a3 3 0 0 1 0 5.74M4.76 6.13a3 3 0 0 0 0 5.74" />
                   </svg>
                 </div>
@@ -738,8 +738,8 @@ export default function App() {
                     {tr.services.items[3].desc}
                   </p>
                 </div>
-                <div className="mt-auto pt-4 border-t border-[#1A1A1A] group-hover:border-[#C9A84C]/20 transition-colors duration-300">
-                  <span className="text-[#C9A84C] text-xs font-bold uppercase tracking-[0.14em] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="mt-auto pt-4 border-t border-[#1A1A1A] group-hover:border-[#f03a28]/20 transition-colors duration-300">
+                  <span className="text-[#f03a28] text-xs font-bold uppercase tracking-[0.14em] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     Join next cohort →
                   </span>
                 </div>
@@ -758,7 +758,7 @@ export default function App() {
             {/* Founders */}
             <Reveal>
               <div className="bg-[#0D0D0D] p-8 md:p-12">
-                <p className="text-xl font-black text-[#C9A84C] uppercase tracking-[0.22em] mb-6">{tr.founders.label}</p>
+                <p className="text-xl font-black text-[#f03a28] uppercase tracking-[0.22em] mb-6">{tr.founders.label}</p>
                 <h2 className="text-3xl md:text-4xl font-black tracking-tight text-[#E5E5E5] mb-4 leading-tight"
                   style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
                   {tr.founders.heading}<br />{tr.founders.headingSub}
@@ -767,11 +767,11 @@ export default function App() {
                 <EmailInput placeholder="your@email.com" buttonText={tr.founders.joinFree} className="mb-6 w-full sm:max-w-sm" />
                 <div className="flex flex-col gap-3 mt-6 pt-6 border-t border-[#1A1A1A]">
                   <a href="https://forms.gle/CaP1GZQE2XUESm6u5" target="_blank" rel="noopener noreferrer"
-                    className="text-sm text-[#C9A84C] hover:underline font-semibold">
+                    className="text-sm text-[#f03a28] hover:underline font-semibold">
                     {tr.founders.submitStartup}
                   </a>
                   <a href="https://forms.gle/CaP1GZQE2XUESm6u5" target="_blank" rel="noopener noreferrer"
-                    className="text-sm text-[#777] hover:text-[#C9A84C] transition-colors">
+                    className="text-sm text-[#777] hover:text-[#f03a28] transition-colors">
                     {tr.founders.requestDealflow}
                   </a>
                 </div>
@@ -782,7 +782,7 @@ export default function App() {
             <Reveal delay={120}>
               <div className="bg-[#0D0D0D] p-8 md:p-12 flex flex-col justify-between">
                 <div>
-                  <p className="text-xl font-black text-[#C9A84C] uppercase tracking-[0.22em] mb-6">{tr.businesses.label}</p>
+                  <p className="text-xl font-black text-[#f03a28] uppercase tracking-[0.22em] mb-6">{tr.businesses.label}</p>
                   <h2 className="text-3xl md:text-4xl font-black tracking-tight text-[#E5E5E5] mb-4 leading-tight"
                     style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
                     {tr.businesses.heading}<br />{tr.businesses.headingSub}
@@ -796,12 +796,12 @@ export default function App() {
                 </div>
                 <div className="flex flex-col gap-3">
                   <a href="https://calendly.com/cairoa" target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center px-6 py-3.5 bg-[#C9A84C] text-[#0D0D0D] font-bold text-sm hover:bg-[#D4B45C] transition-colors cursor-pointer"
+                    className="inline-flex items-center justify-center px-6 py-3.5 bg-[#f03a28] text-[#0D0D0D] font-bold text-sm hover:bg-[#f55040] transition-colors cursor-pointer"
                     style={{ fontFamily: 'Space Grotesk, sans-serif', letterSpacing: '0.04em' }}>
                     {tr.businesses.book}
                   </a>
                   <a href="mailto:maxventurepower@gmail.com?subject=Partnership Inquiry"
-                    className="inline-flex items-center justify-center px-6 py-3.5 border border-[#2A2A2A] text-[#888] font-semibold text-sm hover:border-[#C9A84C] hover:text-[#E5E5E5] transition-colors cursor-pointer"
+                    className="inline-flex items-center justify-center px-6 py-3.5 border border-[#2A2A2A] text-[#888] font-semibold text-sm hover:border-[#f03a28] hover:text-[#E5E5E5] transition-colors cursor-pointer"
                     style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
                     {tr.businesses.seeOptions}
                   </a>
@@ -816,7 +816,7 @@ export default function App() {
       <section id="partnerships" className="py-16 md:py-28 lg:py-36 border-t border-[#111] overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12 mb-16">
           <Reveal>
-            <p className="text-xl font-black text-[#C9A84C] uppercase tracking-[0.22em] mb-4 text-center">{tr.partners.label}</p>
+            <p className="text-xl font-black text-[#f03a28] uppercase tracking-[0.22em] mb-4 text-center">{tr.partners.label}</p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-[#E5E5E5] text-center leading-[0.95]"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
               Building together.
@@ -837,16 +837,16 @@ export default function App() {
             <div className="flex gap-4 animate-marquee">
               {[...tr.partners.items, ...tr.partners.items, ...tr.partners.items].map(({ name, url, desc }, i) => (
                 <a key={`${name}-${i}`} href={url} target="_blank" rel="noopener noreferrer"
-                  className="partner-card relative overflow-hidden bg-[#0D0D0D] border border-[#1F1F1F] p-8 md:p-10 flex flex-col gap-3 group transition-all duration-300 hover:border-[#C9A84C]/40 flex-shrink-0 w-64 md:w-80"
+                  className="partner-card relative overflow-hidden bg-[#0D0D0D] border border-[#1F1F1F] p-8 md:p-10 flex flex-col gap-3 group transition-all duration-300 hover:border-[#f03a28]/40 flex-shrink-0 w-64 md:w-80"
                   style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                    style={{ background: 'linear-gradient(135deg, rgba(201,168,76,0.12) 0%, rgba(201,168,76,0.04) 60%, transparent 100%)' }} />
+                    style={{ background: 'linear-gradient(135deg, rgba(240,58,40,0.12) 0%, rgba(240,58,40,0.04) 60%, transparent 100%)' }} />
                   <span className="partner-name relative text-2xl md:text-3xl font-black tracking-tight transition-all duration-300"
                     style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
                     {name}
                   </span>
                   <span className="relative text-[#888] text-sm">{desc}</span>
-                  <span className="relative text-[#C9A84C] text-xs font-bold uppercase tracking-[0.14em] opacity-0 group-hover:opacity-100 transition-opacity duration-300">Visit →</span>
+                  <span className="relative text-[#f03a28] text-xs font-bold uppercase tracking-[0.14em] opacity-0 group-hover:opacity-100 transition-opacity duration-300">Visit →</span>
                 </a>
               ))}
             </div>
@@ -879,7 +879,7 @@ export default function App() {
               <div className="flex gap-3">
                 {/* LinkedIn */}
                 <a href="https://linkedin.com/company/maxventurepower" target="_blank" rel="noopener noreferrer"
-                  className="w-9 h-9 border border-[#1F1F1F] flex items-center justify-center hover:bg-[#C9A84C] hover:border-[#C9A84C] hover:text-[#0D0D0D] text-[#777] transition-all"
+                  className="w-9 h-9 border border-[#1F1F1F] flex items-center justify-center hover:bg-[#f03a28] hover:border-[#f03a28] hover:text-[#0D0D0D] text-[#777] transition-all"
                   aria-label="LinkedIn">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -887,7 +887,7 @@ export default function App() {
                 </a>
                 {/* Email */}
                 <a href="mailto:maxventurepower@gmail.com"
-                  className="w-9 h-9 border border-[#1F1F1F] flex items-center justify-center hover:bg-[#C9A84C] hover:border-[#C9A84C] hover:text-[#0D0D0D] text-[#777] transition-all"
+                  className="w-9 h-9 border border-[#1F1F1F] flex items-center justify-center hover:bg-[#f03a28] hover:border-[#f03a28] hover:text-[#0D0D0D] text-[#777] transition-all"
                   aria-label="Email">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
@@ -895,7 +895,7 @@ export default function App() {
                 </a>
                 {/* Calendar */}
                 <a href="https://calendly.com/cairoa" target="_blank" rel="noopener noreferrer"
-                  className="w-9 h-9 border border-[#1F1F1F] flex items-center justify-center hover:bg-[#C9A84C] hover:border-[#C9A84C] hover:text-[#0D0D0D] text-[#777] transition-all"
+                  className="w-9 h-9 border border-[#1F1F1F] flex items-center justify-center hover:bg-[#f03a28] hover:border-[#f03a28] hover:text-[#0D0D0D] text-[#777] transition-all"
                   aria-label="Book a call">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
@@ -911,7 +911,7 @@ export default function App() {
                 {tr.footer.navLinks.map(({ href, label, external, highlight }) => (
                   <li key={label}>
                     <a href={href} {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                      className={`transition-colors ${highlight ? 'text-[#C9A84C] hover:text-[#D4B45C] font-semibold' : 'hover:text-[#C9A84C]'}`}>
+                      className={`transition-colors ${highlight ? 'text-[#f03a28] hover:text-[#f55040] font-semibold' : 'hover:text-[#f03a28]'}`}>
                       {label}
                     </a>
                   </li>
@@ -926,7 +926,7 @@ export default function App() {
                 {tr.footer.contactLinks.map(({ href, label, external }) => (
                   <li key={label}>
                     <a href={href} {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                      className="hover:text-[#C9A84C] transition-colors">
+                      className="hover:text-[#f03a28] transition-colors">
                       {label}
                     </a>
                   </li>

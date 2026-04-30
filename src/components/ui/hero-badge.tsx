@@ -16,7 +16,7 @@ interface HeroBadgeProps {
 
 const badgeVariants: Record<string, string> = {
   default: "bg-[#141414] hover:bg-[#1A1A1A] border-[#2A2A2A]",
-  outline: "border-2 border-[#C9A84C]/40 hover:bg-[#141414]",
+  outline: "border-2 border-[#f03a28]/40 hover:bg-[#141414]",
   ghost: "hover:bg-[#141414]/50",
 };
 
@@ -61,7 +61,7 @@ export default function HeroBadge({
     >
       {icon && (
         <motion.div
-          className="text-[#C9A84C] transition-colors"
+          className="text-[#f03a28] transition-colors"
           variants={iconAnimationVariants}
           initial="initial"
           animate={controls}

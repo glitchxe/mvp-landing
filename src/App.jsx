@@ -248,7 +248,7 @@ const PipelineDashboard = ({ tr }) => {
       <div className="hidden md:grid grid-cols-12 gap-4 px-6 py-3 bg-[#080808] text-[#777] text-[10px] uppercase tracking-[0.12em] border-b border-[#1F1F1F]">
         <div className="col-span-3">Sector</div>
         <div className="col-span-2">Stage</div>
-        <div className="col-span-2">Raise</div>
+        <div className="col-span-2">Raising</div>
         <div className="col-span-5">{tr.elProblema}</div>
       </div>
 

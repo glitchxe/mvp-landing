@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Hero } from '@/components/blocks/hero';
 import { translations } from './translations';
+import { useMemberCount } from './hooks/useMemberCount';
 
 // ─── Google Sheets Pipeline ────────────────────────────────────────────────────
 
@@ -370,6 +371,7 @@ export default function App() {
   const [scrolled, setScrolled] = useState(false);
   const [lang, setLang] = useState('en');
   const tr = translations[lang];
+  const { count, spotsLeft, foundingActive } = useMemberCount();
 
   useEffect(() => {
     const handle = () => setScrolled(window.scrollY > 50);
@@ -411,6 +413,22 @@ export default function App() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0D0D0D]"></span>
               </span>
               Active Deals
+            </a>
+
+            {/* MVP Club nav button */}
+            <a href="/mvpclub"
+              className="hidden sm:flex items-center gap-1.5 px-4 py-2 text-xs font-bold uppercase tracking-wide transition-all cursor-pointer border"
+              style={{
+                fontFamily: 'Space Grotesk, sans-serif',
+                letterSpacing: '0.08em',
+                color: '#C4A04A',
+                borderColor: '#C4A04A40',
+                background: '#C4A04A0A',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = '#C4A04A18'; e.currentTarget.style.borderColor = '#C4A04A80'; }}
+              onMouseLeave={e => { e.currentTarget.style.background = '#C4A04A0A'; e.currentTarget.style.borderColor = '#C4A04A40'; }}
+            >
+              MVP Club
             </a>
             <a href="https://mvpower.beehiiv.com"
               target="_blank" rel="noopener noreferrer"
@@ -865,6 +883,66 @@ export default function App() {
             animation-play-state: paused;
           }
         `}</style>
+      </section>
+
+      {/* ── MVP CLUB STRIP ──────────────────────────────────────────────────── */}
+      <section className="border-t border-b border-[#1A1A1A]" style={{ background: '#080604' }}>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-7 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+
+          {/* Left: label + copy */}
+          <div className="flex items-center gap-5 flex-wrap">
+            <div className="flex items-center gap-2 shrink-0">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-60" style={{ background: '#C4A04A', animationDuration: '2.5s' }} />
+                <span className="relative inline-flex rounded-full h-2 w-2" style={{ background: '#C4A04A' }} />
+              </span>
+              <span className="text-[10px] font-black uppercase tracking-[0.22em]"
+                style={{ fontFamily: 'Space Grotesk, sans-serif', color: '#C4A04A' }}>
+                MVP Club
+              </span>
+            </div>
+            <div className="h-4 w-px bg-[#2A2A2A] hidden sm:block" />
+            <p className="text-sm text-[#7A7168]" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+              {lang === 'en'
+                ? 'Private group for founders and operators building in Latin America.'
+                : 'Grupo privado para founders y operadores construyendo en América Latina.'}
+            </p>
+          </div>
+
+          {/* Right: counter + CTA */}
+          <div className="flex items-center gap-4 shrink-0 flex-wrap">
+            {count !== null && (
+              <div className="text-right">
+                <span className="text-xs font-black" style={{ fontFamily: 'Space Grotesk, sans-serif', color: '#C4A04A' }}>
+                  {count} {lang === 'en' ? 'members' : 'miembros'}
+                </span>
+                {foundingActive && spotsLeft !== null && (
+                  <p className="text-[10px] text-[#7A7168]">
+                    {spotsLeft} {lang === 'en' ? 'founding spots left · $80/mo' : 'cupos fundadores · $80/mes'}
+                  </p>
+                )}
+                {!foundingActive && (
+                  <p className="text-[10px] text-[#7A7168]">
+                    {lang === 'en' ? 'Founding tier full · $97/mo' : 'Tier fundador lleno · $97/mes'}
+                  </p>
+                )}
+              </div>
+            )}
+            <a href="/mvpclub"
+              className="px-5 py-2.5 text-xs font-bold uppercase tracking-wide transition-colors whitespace-nowrap"
+              style={{
+                fontFamily: 'Space Grotesk, sans-serif',
+                letterSpacing: '0.1em',
+                background: '#C4A04A',
+                color: '#050504',
+              }}
+              onMouseEnter={e => (e.currentTarget.style.background = '#D4AF5A')}
+              onMouseLeave={e => (e.currentTarget.style.background = '#C4A04A')}
+            >
+              {lang === 'en' ? 'Learn more →' : 'Ver más →'}
+            </a>
+          </div>
+        </div>
       </section>
 
       {/* ── FOOTER ──────────────────────────────────────────────────────────── */}

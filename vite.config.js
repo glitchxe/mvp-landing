@@ -5,10 +5,17 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
+  appType: 'spa',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
+  },
+  server: {
+    historyApiFallback: true,
+  },
+  preview: {
+    historyApiFallback: true,
   },
 })

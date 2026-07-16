@@ -36,7 +36,7 @@ const t = {
     hero: {
       eyebrow: 'MVP Club',
       headline: 'The room most founders\nnever get into.',
-      sub: 'A private group for founders and operators building in Latin America.',
+      sub: 'A private group for founders and operators building in LATAM.',
       price: '$80 / month',
       priceSub: 'Founding price — locks in when you join.',
       cta: 'Apply for membership',
@@ -138,7 +138,7 @@ const t = {
     hero: {
       eyebrow: 'MVP Club',
       headline: 'El cuarto al que la mayoría\nde founders nunca llega.',
-      sub: 'Un grupo privado para founders y operadores construyendo en América Latina.',
+      sub: 'Un grupo privado para founders y operadores construyendo en LATAM.',
       price: '$80 / mes',
       priceSub: 'Precio fundador — se fija cuando te unes.',
       cta: 'Aplicar para membresía',

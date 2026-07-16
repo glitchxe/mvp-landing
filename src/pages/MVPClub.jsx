@@ -812,10 +812,10 @@ export default function MVPClub() {
               <div style={{ width: 28, height: 1, background: GOLD }} />
               <span
                 style={{
-                  fontSize: '0.65rem',
+                  fontSize: '1.3rem',
                   fontFamily: 'Space Grotesk, sans-serif',
                   fontWeight: 800,
-                  letterSpacing: '0.25em',
+                  letterSpacing: '0.15em',
                   textTransform: 'uppercase',
                   color: GOLD,
                 }}

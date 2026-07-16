@@ -487,16 +487,16 @@ export default function MVPClub() {
         <a
           href="/"
           style={{
-            fontSize: '0.7rem',
-            color: WARM_GRAY,
+            fontSize: '0.9rem',
+            color: '#C8BFB4',
             textDecoration: 'none',
-            letterSpacing: '0.1em',
+            letterSpacing: '0.06em',
             fontFamily: 'Space Grotesk, sans-serif',
             fontWeight: 600,
             transition: 'color 0.2s',
           }}
           onMouseEnter={(e) => (e.target.style.color = CREAM)}
-          onMouseLeave={(e) => (e.target.style.color = WARM_GRAY)}
+          onMouseLeave={(e) => (e.target.style.color = '#C8BFB4')}
         >
           {tr.nav.back}
         </a>
@@ -506,11 +506,11 @@ export default function MVPClub() {
           <button
             onClick={() => setLang((l) => (l === 'en' ? 'es' : 'en'))}
             style={{
-              fontSize: '0.65rem',
-              color: WARM_GRAY,
+              fontSize: '0.8rem',
+              color: '#C8BFB4',
               background: 'transparent',
               border: `1px solid ${BORDER}`,
-              padding: '0.35rem 0.65rem',
+              padding: '0.4rem 0.75rem',
               cursor: 'pointer',
               fontFamily: 'Space Grotesk, sans-serif',
               fontWeight: 700,
@@ -530,11 +530,11 @@ export default function MVPClub() {
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              fontSize: '0.7rem',
+              fontSize: '0.82rem',
               color: BG,
               background: GOLD,
               border: `1px solid ${GOLD}`,
-              padding: '0.45rem 1.1rem',
+              padding: '0.5rem 1.25rem',
               fontFamily: 'Space Grotesk, sans-serif',
               fontWeight: 700,
               letterSpacing: '0.1em',
@@ -1198,11 +1198,10 @@ export default function MVPClub() {
       >
         <p
           style={{
-            fontSize: '0.7rem',
-            color: WARM_GRAY,
-            opacity: 0.6,
+            fontSize: '0.9rem',
+            color: '#C8BFB4',
             fontFamily: 'Space Grotesk, sans-serif',
-            letterSpacing: '0.05em',
+            letterSpacing: '0.04em',
           }}
         >
           {tr.footer.copy}
@@ -1210,16 +1209,15 @@ export default function MVPClub() {
         <a
           href="/"
           style={{
-            fontSize: '0.7rem',
-            color: WARM_GRAY,
-            opacity: 0.6,
+            fontSize: '0.9rem',
+            color: '#C8BFB4',
             fontFamily: 'Space Grotesk, sans-serif',
             textDecoration: 'none',
-            letterSpacing: '0.05em',
-            transition: 'opacity 0.2s',
+            letterSpacing: '0.04em',
+            transition: 'color 0.2s',
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.opacity = '1')}
-          onMouseLeave={(e) => (e.currentTarget.style.opacity = '0.6')}
+          onMouseEnter={(e) => (e.currentTarget.style.color = CREAM)}
+          onMouseLeave={(e) => (e.currentTarget.style.color = '#C8BFB4')}
         >
           {tr.footer.link}
         </a>

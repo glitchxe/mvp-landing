@@ -784,8 +784,16 @@ export default function App() {
                   {tr.founders.heading}<br />{tr.founders.headingSub}
                 </h2>
                 <p className="text-[#888] text-base mb-8 leading-relaxed">{tr.founders.description}</p>
-                <EmailInput placeholder="your@email.com" buttonText={tr.founders.joinFree} className="mb-6 w-full sm:max-w-sm" />
-                <div className="flex flex-col gap-3 mt-6 pt-6 border-t border-[#1A1A1A]">
+                <EmailInput placeholder="your@email.com" buttonText={tr.founders.joinFree} className="mb-4 w-full sm:max-w-sm" />
+                <a href="https://forms.gle/CaP1GZQE2XUESm6u5" target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-3 mb-6 text-sm font-bold uppercase tracking-wide transition-colors w-full sm:max-w-sm justify-center"
+                  style={{ fontFamily: 'Space Grotesk, sans-serif', letterSpacing: '0.08em', border: '1px solid #f03a28', color: '#f03a28' }}
+                  onMouseEnter={e => { e.currentTarget.style.background = '#f03a28'; e.currentTarget.style.color = '#0D0D0D'; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#f03a28'; }}
+                >
+                  {tr.founders.joinPipeline}
+                </a>
+                <div className="flex flex-col gap-3 pt-6 border-t border-[#1A1A1A]">
                   <a href="https://forms.gle/CaP1GZQE2XUESm6u5" target="_blank" rel="noopener noreferrer"
                     className="text-sm text-[#f03a28] hover:underline font-semibold">
                     {tr.founders.submitStartup}

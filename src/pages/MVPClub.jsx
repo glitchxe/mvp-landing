@@ -325,12 +325,13 @@ const MemberCounter = ({ tr, count, error }) => {
           const isCurrent = tier.active;
           const isDone = tier.soldOut;
           const isLocked = !isCurrent && !isDone;
-          const opacity = isLocked ? 0.28 : 1;
+          // Locked tiers visible at 70% — readable but clearly secondary
+          const opacity = isLocked ? 0.7 : 1;
 
           return (
             <div key={tier.id} style={{ opacity, transition: 'opacity 0.3s' }}>
               {/* Top row: label + price + status */}
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.6rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.65rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.55rem' }}>
                   {isCurrent && (
                     <span className="relative flex shrink-0" style={{ width: 7, height: 7 }}>
@@ -338,31 +339,31 @@ const MemberCounter = ({ tr, count, error }) => {
                       <span className="relative inline-flex rounded-full h-full w-full" style={{ background: GOLD }} />
                     </span>
                   )}
-                  <span style={{ fontSize: '0.75rem', fontWeight: 800, letterSpacing: '0.16em', textTransform: 'uppercase', color: isCurrent ? GOLD : WARM_GRAY }}>
+                  <span style={{ fontSize: '0.85rem', fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: isCurrent ? GOLD : CREAM }}>
                     {i === 0 ? tr.counter.founding : `${tr.counter.tier} ${i + 1}`}
                   </span>
                 </div>
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                   {isDone && (
-                    <span style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: WARM_GRAY, opacity: 0.6 }}>
+                    <span style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: WARM_GRAY }}>
                       {tr.counter.soldOut}
                     </span>
                   )}
                   {isLocked && tier.unlockAt && (
-                    <span style={{ fontSize: '0.65rem', color: WARM_GRAY, opacity: 0.7 }}>
+                    <span style={{ fontSize: '0.75rem', color: WARM_GRAY }}>
                       {tr.counter.unlockAt(tier.unlockAt)}
                     </span>
                   )}
-                  <span style={{ fontSize: '0.95rem', fontWeight: 800, color: isCurrent ? CREAM : WARM_GRAY, letterSpacing: '-0.01em' }}>
+                  <span style={{ fontSize: '1.15rem', fontWeight: 800, color: isCurrent ? CREAM : '#B8B0A4', letterSpacing: '-0.01em', fontFamily: 'Space Grotesk, sans-serif' }}>
                     {tier.price}
-                    <span style={{ fontSize: '0.7rem', fontWeight: 400 }}>/mo</span>
+                    <span style={{ fontSize: '0.75rem', fontWeight: 400 }}>/mo</span>
                   </span>
                 </div>
               </div>
 
-              {/* Bar track */}
-              <div style={{ position: 'relative', height: 10, background: `${BORDER}`, borderRadius: 2, overflow: 'hidden' }}>
+              {/* Bar track — visible background */}
+              <div style={{ position: 'relative', height: 10, background: '#2E2A24', borderRadius: 2, overflow: 'hidden' }}>
                 {/* Segment dividers every 5 spots */}
                 {tier.spots && Array.from({ length: Math.floor(tier.spots / 5) - 1 }).map((_, j) => (
                   <div
@@ -385,7 +386,7 @@ const MemberCounter = ({ tr, count, error }) => {
                     inset: 0,
                     width: animated && (isCurrent || isDone) ? `${tier.progress}%` : '0%',
                     background: isDone
-                      ? `linear-gradient(90deg, ${WARM_GRAY}80, ${WARM_GRAY}40)`
+                      ? `linear-gradient(90deg, ${WARM_GRAY}, ${WARM_GRAY}80)`
                       : `linear-gradient(90deg, ${GOLD}, ${GOLD_LIGHT})`,
                     transition: `width ${0.9 + i * 0.15}s cubic-bezier(0.16, 1, 0.3, 1) ${i * 80}ms`,
                   }}
@@ -394,8 +395,13 @@ const MemberCounter = ({ tr, count, error }) => {
 
               {/* Bottom row: spots filled */}
               {(isCurrent || isDone) && tier.spots && (
-                <p style={{ fontSize: '0.65rem', color: WARM_GRAY, marginTop: '0.4rem', opacity: 0.7 }}>
+                <p style={{ fontSize: '0.78rem', color: WARM_GRAY, marginTop: '0.45rem' }}>
                   {tr.counter.spotsOf(tier.filled, tier.spots)}
+                </p>
+              )}
+              {isLocked && (
+                <p style={{ fontSize: '0.75rem', color: '#5A534A', marginTop: '0.45rem' }}>
+                  {tier.spots ? `${tier.spots} spots` : 'Open'}
                 </p>
               )}
             </div>
@@ -1031,8 +1037,8 @@ export default function MVPClub() {
                     gap: '1rem',
                     padding: '1.5rem 2rem',
                     borderBottom: i < tr.pricing.tiers.length - 1 ? `1px solid ${BORDER}` : 'none',
-                    background: isCurrent ? `${GOLD}06` : 'transparent',
-                    opacity: isLocked ? 0.45 : 1,
+                    background: isCurrent ? `${GOLD}08` : 'transparent',
+                    opacity: isLocked ? 0.7 : 1,
                     transition: 'opacity 0.2s',
                   }}
                 >
@@ -1040,16 +1046,16 @@ export default function MVPClub() {
                     <span
                       style={{
                         fontFamily: 'Space Grotesk, sans-serif',
-                        fontSize: '0.7rem',
+                        fontSize: '0.85rem',
                         fontWeight: 800,
-                        letterSpacing: '0.15em',
+                        letterSpacing: '0.14em',
                         textTransform: 'uppercase',
-                        color: isCurrent ? GOLD : WARM_GRAY,
+                        color: isCurrent ? GOLD : CREAM,
                       }}
                     >
                       {tier.label}
                     </span>
-                    <span style={{ fontSize: '0.8rem', color: WARM_GRAY, opacity: 0.6 }}>
+                    <span style={{ fontSize: '0.85rem', color: WARM_GRAY }}>
                       {tier.range}
                     </span>
                   </div>
@@ -1059,8 +1065,8 @@ export default function MVPClub() {
                       style={{
                         fontFamily: 'Space Grotesk, sans-serif',
                         fontWeight: 800,
-                        fontSize: '1.1rem',
-                        color: isCurrent ? CREAM : WARM_GRAY,
+                        fontSize: '1.15rem',
+                        color: isCurrent ? CREAM : '#B8B0A4',
                         letterSpacing: '-0.01em',
                       }}
                     >
@@ -1069,15 +1075,15 @@ export default function MVPClub() {
                     {isCurrent && (
                       <span
                         style={{
-                          fontSize: '0.6rem',
+                          fontSize: '0.72rem',
                           fontFamily: 'Space Grotesk, sans-serif',
                           fontWeight: 800,
-                          letterSpacing: '0.15em',
+                          letterSpacing: '0.12em',
                           textTransform: 'uppercase',
                           color: GOLD,
                           background: `${GOLD}15`,
                           border: `1px solid ${GOLD}35`,
-                          padding: '0.25rem 0.6rem',
+                          padding: '0.25rem 0.7rem',
                         }}
                       >
                         {lang === 'en' ? 'Current' : 'Actual'}
@@ -1086,15 +1092,15 @@ export default function MVPClub() {
                     {isSoldOut && (
                       <span
                         style={{
-                          fontSize: '0.6rem',
+                          fontSize: '0.72rem',
                           fontFamily: 'Space Grotesk, sans-serif',
                           fontWeight: 800,
-                          letterSpacing: '0.15em',
+                          letterSpacing: '0.12em',
                           textTransform: 'uppercase',
                           color: WARM_GRAY,
                           background: `${WARM_GRAY}15`,
                           border: `1px solid ${WARM_GRAY}35`,
-                          padding: '0.25rem 0.6rem',
+                          padding: '0.25rem 0.7rem',
                         }}
                       >
                         {tr.counter.soldOut}

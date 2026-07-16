@@ -727,14 +727,14 @@ export default function MVPClub() {
               >
                 <span
                   style={{
-                    fontSize: '0.6rem',
+                    fontSize: '0.8rem',
                     fontFamily: 'Space Grotesk, sans-serif',
                     fontWeight: 800,
                     letterSpacing: '0.2em',
                     color: GOLD,
-                    opacity: 0.5,
+                    opacity: 0.7,
                     display: 'block',
-                    marginBottom: '0.75rem',
+                    marginBottom: '0.9rem',
                   }}
                 >
                   {String(i + 1).padStart(2, '0')}
@@ -742,16 +742,16 @@ export default function MVPClub() {
                 <h3
                   style={{
                     fontFamily: 'Playfair Display, Georgia, serif',
-                    fontSize: '1.2rem',
+                    fontSize: '1.55rem',
                     fontWeight: 600,
                     color: CREAM,
-                    marginBottom: '0.6rem',
-                    lineHeight: 1.3,
+                    marginBottom: '0.75rem',
+                    lineHeight: 1.25,
                   }}
                 >
                   {item.title}
                 </h3>
-                <p style={{ fontSize: '0.875rem', color: WARM_GRAY, lineHeight: 1.65 }}>
+                <p style={{ fontSize: '1.05rem', color: '#C8BFB4', lineHeight: 1.7 }}>
                   {item.desc}
                 </p>
               </div>

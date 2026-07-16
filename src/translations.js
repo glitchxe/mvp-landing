@@ -1,6 +1,6 @@
 export const translations = {
   en: {
-    nav: { join: 'Join MVP' },
+    nav: { join: 'Join the Newsletter', applyClub: 'Apply for MVP Club' },
     hero: {
       title: 'The capital, tools & connections to build in LATAM exist.',
       highlight: "You just don't have access yet.",
@@ -149,7 +149,7 @@ export const translations = {
   },
 
   es: {
-    nav: { join: 'Únete a MVP' },
+    nav: { join: 'Únete al Newsletter', applyClub: 'Aplica al MVP Club' },
     hero: {
       title: 'El capital, herramientas y conexiones para construir en LATAM existen.',
       highlight: 'Aún no tienes acceso.',

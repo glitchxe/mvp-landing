@@ -415,21 +415,22 @@ export default function App() {
               Active Deals
             </a>
 
-            {/* MVP Club nav button */}
+            {/* Apply for MVP Club */}
             <a href="/mvpclub"
-              className="hidden sm:flex items-center gap-1.5 px-4 py-2 text-xs font-bold uppercase tracking-wide transition-all cursor-pointer border"
+              className="hidden sm:flex items-center gap-1.5 px-4 py-2 text-xs font-bold uppercase tracking-wide transition-all cursor-pointer"
               style={{
                 fontFamily: 'Space Grotesk, sans-serif',
                 letterSpacing: '0.08em',
-                color: '#C4A04A',
-                borderColor: '#C4A04A40',
-                background: '#C4A04A0A',
+                color: '#050504',
+                background: '#C4A04A',
               }}
-              onMouseEnter={e => { e.currentTarget.style.background = '#C4A04A18'; e.currentTarget.style.borderColor = '#C4A04A80'; }}
-              onMouseLeave={e => { e.currentTarget.style.background = '#C4A04A0A'; e.currentTarget.style.borderColor = '#C4A04A40'; }}
+              onMouseEnter={e => (e.currentTarget.style.background = '#D4AF5A')}
+              onMouseLeave={e => (e.currentTarget.style.background = '#C4A04A')}
             >
-              MVP Club
+              {tr.nav.applyClub}
             </a>
+
+            {/* Join the Newsletter */}
             <a href="https://mvpower.beehiiv.com"
               target="_blank" rel="noopener noreferrer"
               className="px-4 py-2 border border-[#f03a28] text-[#f03a28] text-xs font-bold hover:bg-[#f03a28] hover:text-[#0D0D0D] transition-all tracking-wide uppercase"

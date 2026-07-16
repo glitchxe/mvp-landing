@@ -415,17 +415,17 @@ export default function App() {
               Active Deals
             </a>
 
-            {/* Join the Newsletter */}
+            {/* Join the Newsletter — desktop only */}
             <a href="https://mvpower.beehiiv.com"
               target="_blank" rel="noopener noreferrer"
-              className="px-4 py-2 border border-[#f03a28] text-[#f03a28] text-xs font-bold hover:bg-[#f03a28] hover:text-[#0D0D0D] transition-all tracking-wide uppercase"
+              className="hidden sm:block px-4 py-2 border border-[#f03a28] text-[#f03a28] text-xs font-bold hover:bg-[#f03a28] hover:text-[#0D0D0D] transition-all tracking-wide uppercase"
               style={{ fontFamily: 'Space Grotesk, sans-serif', letterSpacing: '0.08em' }}>
               {tr.nav.join}
             </a>
 
-            {/* Apply for MVP Club */}
+            {/* Apply for MVP Club — full text desktop, short on mobile */}
             <a href="/mvpclub"
-              className="flex items-center gap-1.5 px-4 py-2 text-xs font-bold uppercase tracking-wide transition-all cursor-pointer"
+              className="flex items-center px-3 py-1.5 sm:px-4 sm:py-2 text-xs font-bold uppercase tracking-wide transition-all cursor-pointer"
               style={{
                 fontFamily: 'Space Grotesk, sans-serif',
                 letterSpacing: '0.08em',
@@ -435,7 +435,8 @@ export default function App() {
               onMouseEnter={e => (e.currentTarget.style.background = '#D4AF5A')}
               onMouseLeave={e => (e.currentTarget.style.background = '#C4A04A')}
             >
-              {tr.nav.applyClub}
+              <span className="sm:hidden">MVP Club</span>
+              <span className="hidden sm:inline">{tr.nav.applyClub}</span>
             </a>
           </div>
         </div>

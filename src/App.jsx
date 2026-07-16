@@ -415,6 +415,14 @@ export default function App() {
               Active Deals
             </a>
 
+            {/* Join the Newsletter */}
+            <a href="https://mvpower.beehiiv.com"
+              target="_blank" rel="noopener noreferrer"
+              className="px-4 py-2 border border-[#f03a28] text-[#f03a28] text-xs font-bold hover:bg-[#f03a28] hover:text-[#0D0D0D] transition-all tracking-wide uppercase"
+              style={{ fontFamily: 'Space Grotesk, sans-serif', letterSpacing: '0.08em' }}>
+              {tr.nav.join}
+            </a>
+
             {/* Apply for MVP Club */}
             <a href="/mvpclub"
               className="hidden sm:flex items-center gap-1.5 px-4 py-2 text-xs font-bold uppercase tracking-wide transition-all cursor-pointer"
@@ -428,14 +436,6 @@ export default function App() {
               onMouseLeave={e => (e.currentTarget.style.background = '#C4A04A')}
             >
               {tr.nav.applyClub}
-            </a>
-
-            {/* Join the Newsletter */}
-            <a href="https://mvpower.beehiiv.com"
-              target="_blank" rel="noopener noreferrer"
-              className="px-4 py-2 border border-[#f03a28] text-[#f03a28] text-xs font-bold hover:bg-[#f03a28] hover:text-[#0D0D0D] transition-all tracking-wide uppercase"
-              style={{ fontFamily: 'Space Grotesk, sans-serif', letterSpacing: '0.08em' }}>
-              {tr.nav.join}
             </a>
           </div>
         </div>

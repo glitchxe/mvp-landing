@@ -886,55 +886,60 @@ export default function App() {
       </section>
 
       {/* ── MVP CLUB STRIP ──────────────────────────────────────────────────── */}
-      <section className="border-t border-b border-[#1A1A1A]" style={{ background: '#080604' }}>
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-7 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+      <section className="border-t border-b border-[#2A2A2A]" style={{ background: '#0A0806' }}>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-8 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
 
           {/* Left: label + copy */}
           <div className="flex items-center gap-5 flex-wrap">
-            <div className="flex items-center gap-2 shrink-0">
-              <span className="relative flex h-2 w-2">
+            <div className="flex items-center gap-2.5 shrink-0">
+              <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-60" style={{ background: '#C4A04A', animationDuration: '2.5s' }} />
-                <span className="relative inline-flex rounded-full h-2 w-2" style={{ background: '#C4A04A' }} />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5" style={{ background: '#C4A04A' }} />
               </span>
-              <span className="text-[10px] font-black uppercase tracking-[0.22em]"
-                style={{ fontFamily: 'Space Grotesk, sans-serif', color: '#C4A04A' }}>
+              <span className="font-black uppercase"
+                style={{ fontFamily: 'Space Grotesk, sans-serif', color: '#C4A04A', fontSize: '0.85rem', letterSpacing: '0.18em' }}>
                 MVP Club
               </span>
             </div>
-            <div className="h-4 w-px bg-[#2A2A2A] hidden sm:block" />
-            <p className="text-sm text-[#7A7168]" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+            <div className="h-4 w-px bg-[#3A3530] hidden sm:block" />
+            <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.95rem', color: '#C8BFB4' }}>
               {lang === 'en'
-                ? 'Private group for founders and operators building in Latin America.'
-                : 'Grupo privado para founders y operadores construyendo en América Latina.'}
+                ? 'Private group for founders and operators building in LATAM.'
+                : 'Grupo privado para founders y operadores construyendo en LATAM.'}
             </p>
           </div>
 
           {/* Right: counter + CTA */}
-          <div className="flex items-center gap-4 shrink-0 flex-wrap">
+          <div className="flex items-center gap-5 shrink-0 flex-wrap">
             {count !== null && (
               <div className="text-right">
-                <span className="text-xs font-black" style={{ fontFamily: 'Space Grotesk, sans-serif', color: '#C4A04A' }}>
+                <span className="font-black" style={{ fontFamily: 'Space Grotesk, sans-serif', color: '#C4A04A', fontSize: '1rem' }}>
                   {count} {lang === 'en' ? 'members' : 'miembros'}
                 </span>
                 {foundingActive && spotsLeft !== null && (
-                  <p className="text-[10px] text-[#7A7168]">
+                  <p style={{ fontSize: '0.78rem', color: '#A09488', marginTop: '0.1rem' }}>
                     {spotsLeft} {lang === 'en' ? 'founding spots left · $80/mo' : 'cupos fundadores · $80/mes'}
                   </p>
                 )}
                 {!foundingActive && (
-                  <p className="text-[10px] text-[#7A7168]">
+                  <p style={{ fontSize: '0.78rem', color: '#A09488', marginTop: '0.1rem' }}>
                     {lang === 'en' ? 'Founding tier full · $97/mo' : 'Tier fundador lleno · $97/mes'}
                   </p>
                 )}
               </div>
             )}
             <a href="/mvpclub"
-              className="px-5 py-2.5 text-xs font-bold uppercase tracking-wide transition-colors whitespace-nowrap"
+              className="transition-colors whitespace-nowrap"
               style={{
                 fontFamily: 'Space Grotesk, sans-serif',
+                fontSize: '0.8rem',
+                fontWeight: 700,
                 letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                padding: '0.6rem 1.4rem',
                 background: '#C4A04A',
                 color: '#050504',
+                textDecoration: 'none',
               }}
               onMouseEnter={e => (e.currentTarget.style.background = '#D4AF5A')}
               onMouseLeave={e => (e.currentTarget.style.background = '#C4A04A')}

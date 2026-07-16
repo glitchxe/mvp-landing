@@ -425,7 +425,7 @@ export default function App() {
 
             {/* Apply for MVP Club */}
             <a href="/mvpclub"
-              className="hidden sm:flex items-center gap-1.5 px-4 py-2 text-xs font-bold uppercase tracking-wide transition-all cursor-pointer"
+              className="flex items-center gap-1.5 px-4 py-2 text-xs font-bold uppercase tracking-wide transition-all cursor-pointer"
               style={{
                 fontFamily: 'Space Grotesk, sans-serif',
                 letterSpacing: '0.08em',

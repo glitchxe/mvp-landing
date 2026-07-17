@@ -128,7 +128,7 @@ export const translations = {
       ],
     },
     footer: {
-      tagline: '"Poder e Inteligencia de Mercado para Emprendedores con Visión Global"',
+      tagline: '"Power & Market Intel for Global Founders"',
       navigate: 'Navigate',
       contact: 'Contact',
       navLinks: [
@@ -278,7 +278,7 @@ export const translations = {
       ],
     },
     footer: {
-      tagline: '"Poder e Inteligencia de Mercado para Emprendedores con Visión Global"',
+      tagline: '"Power & Market Intel for Global Founders"',
       navigate: 'Navegar',
       contact: 'Contacto',
       navLinks: [

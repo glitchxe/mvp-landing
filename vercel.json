@@ -6,6 +6,7 @@
     { "source": "/lander", "destination": "/", "permanent": true }
   ],
   "rewrites": [
+    { "source": "/mvpclub", "destination": "/mvpclub.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

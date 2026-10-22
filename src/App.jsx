@@ -56,13 +56,13 @@ const MVPLogo = ({ className = '' }) => (
   <div className={`flex flex-col leading-none gap-1 ${className}`}>
     <span
       className="font-black text-[#E5E5E5] tracking-tight"
-      style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '3rem', letterSpacing: '-0.03em' }}
+      style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', fontSize: '3rem', letterSpacing: '-0.03em' }}
     >
       MVP
     </span>
     <span
       className="font-semibold uppercase text-[#f03a28]"
-      style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '1.05rem', letterSpacing: '0.18em' }}
+      style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', fontSize: '1.05rem', letterSpacing: '0.18em' }}
     >
       Max Venture Power
     </span>
@@ -74,13 +74,13 @@ const MVPLogoNav = () => (
   <div className="flex items-center gap-3">
     <span
       className="font-black text-[#E5E5E5]"
-      style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: '2.25rem', letterSpacing: '-0.03em', lineHeight: 1 }}
+      style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', fontSize: '2.25rem', letterSpacing: '-0.03em', lineHeight: 1 }}
     >
       MVP
     </span>
     <span
       className="hidden sm:block font-semibold uppercase text-[#f03a28]"
-      style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.975rem', letterSpacing: '0.16em' }}
+      style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', fontSize: '0.975rem', letterSpacing: '0.16em' }}
     >
       Max Venture Power
     </span>
@@ -139,7 +139,7 @@ const EmailInput = ({ placeholder = 'Enter your email', buttonText = 'Join Free'
       />
       <button type="submit"
         className="px-6 py-3.5 bg-[#f03a28] text-[#0D0D0D] font-bold text-sm hover:bg-[#f55040] transition-colors whitespace-nowrap cursor-pointer tracking-wide"
-        style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+        style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
         {buttonText}
       </button>
     </form>
@@ -213,7 +213,7 @@ const PipelineDashboard = ({ tr }) => {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#f03a28] opacity-60"></span>
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#f03a28]"></span>
           </span>
-          <span className="text-[#E5E5E5] font-semibold text-sm tracking-wide" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+          <span className="text-[#E5E5E5] font-semibold text-sm tracking-wide" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
             {tr.activeDeals}
           </span>
           {!loading && !error && (
@@ -238,7 +238,7 @@ const PipelineDashboard = ({ tr }) => {
                   ? 'bg-[#f03a28] text-[#0D0D0D]'
                   : 'bg-[#1A1A1A] text-[#6B6B6B] hover:text-[#E5E5E5] border border-[#2A2A2A]'
               }`}
-              style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+              style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
               {s}
             </button>
           ))}
@@ -291,7 +291,7 @@ const PipelineDashboard = ({ tr }) => {
               </span>
             </div>
             <div className="col-span-2 text-[#888] text-sm self-center">{deal.stage}</div>
-            <div className="col-span-2 text-[#f03a28] font-bold text-sm self-center" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{deal.amount}</div>
+            <div className="col-span-2 text-[#f03a28] font-bold text-sm self-center" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>{deal.amount}</div>
             <div className="col-span-5 text-[#888] text-sm self-center line-clamp-2 group-hover:text-[#999] transition-colors pr-2">{deal.problem}</div>
           </button>
 
@@ -302,7 +302,7 @@ const PipelineDashboard = ({ tr }) => {
           >
             <div className="flex items-center justify-between mb-2">
               <span className={`inline-block px-2 py-0.5 text-[10px] font-bold tracking-wide uppercase rounded-sm ${getSectorColor(deal.sector)}`}>{deal.sector}</span>
-              <span className="text-[#f03a28] font-bold text-sm" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{deal.amount}</span>
+              <span className="text-[#f03a28] font-bold text-sm" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>{deal.amount}</span>
             </div>
             <div className="text-[#777] text-xs mb-1">{deal.stage}</div>
             <div className="text-[#888] text-sm line-clamp-2">{deal.problem}</div>
@@ -354,7 +354,7 @@ const HeroEmailCard = ({ tr }) => (
       {tr.rows.map(({ label, text }) => (
         <div key={label} className="flex items-start gap-3">
           <span className="text-xs font-black text-[#f03a28] tracking-widest w-16 shrink-0 pt-0.5"
-            style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{label}</span>
+            style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>{label}</span>
           <span className="text-[#888] text-sm leading-relaxed">{text}</span>
         </div>
       ))}
@@ -365,11 +365,229 @@ const HeroEmailCard = ({ tr }) => (
   </motion.div>
 );
 
+// ─── Newsletter Feed ───────────────────────────────────────────────────────────
+
+const useNewsletterFeed = () => {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch('/api/newsletter')
+      .then(r => { if (!r.ok) throw new Error('Feed unavailable'); return r.json(); })
+      .then(data => { setPosts(data.posts || []); setError(null); })
+      .catch(e => setError(e.message))
+      .finally(() => setLoading(false));
+  }, []);
+
+  return { posts, loading, error };
+};
+
+const NewsletterFeed = ({ tr }) => {
+  const { posts, loading, error } = useNewsletterFeed();
+  const [expanded, setExpanded] = useState(null);
+
+  const toggle = (e, idx) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setExpanded(expanded === idx ? null : idx);
+  };
+
+  return (
+    <div className="border border-[#1A1A1A]" style={{ background: '#08080A' }}>
+
+      {/* Table header */}
+      <div className="hidden md:grid grid-cols-[140px_1fr_40px] gap-0 px-6 py-3 border-b border-[#1A1A1A] bg-[#060608]">
+        <span className="text-[#777] text-[10px] uppercase tracking-[0.18em] font-black" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
+          / DATE
+        </span>
+        <span className="text-[#777] text-[10px] uppercase tracking-[0.18em] font-black" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
+          / TÍTULO
+        </span>
+        <span />
+      </div>
+
+      {/* Loading skeleton */}
+      {loading && (
+        <div className="flex flex-col">
+          {[1, 2, 3, 4, 5].map(i => (
+            <div key={i} className="grid grid-cols-[140px_1fr_40px] gap-0 px-6 py-5 border-b border-[#111] animate-pulse" style={{ animationDelay: `${i * 80}ms` }}>
+              <div className="h-3 w-20 bg-[#1A1A1A] rounded-sm self-center" />
+              <div className="h-4 w-3/4 bg-[#1A1A1A] rounded-sm self-center" />
+              <div className="h-4 w-4 bg-[#1A1A1A] rounded-sm self-center justify-self-end" />
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Error */}
+      {error && !loading && (
+        <div className="px-6 py-10 text-center">
+          <p className="text-[#555] text-sm mb-3">No se pudo cargar el feed.</p>
+          <a href="https://mvpower.beehiiv.com" target="_blank" rel="noopener noreferrer"
+            className="text-[#f03a28] text-sm hover:underline font-semibold">
+            Ver en beehiiv →
+          </a>
+        </div>
+      )}
+
+      {/* Rows */}
+      {!loading && !error && posts.map((post, idx) => (
+        <div key={idx}>
+          <a
+            href={post.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-0 border-b border-[#111] hover:bg-[#0E0E12] transition-colors duration-150 cursor-pointer"
+          >
+            {/* Date — desktop */}
+            <div className="hidden md:flex items-center w-[140px] shrink-0 px-6 py-5">
+              <span className="text-[#888] text-[11px] font-bold tracking-widest tabular-nums group-hover:text-[#aaa] transition-colors"
+                style={{ fontFamily: 'Space Grotesk, monospace' }}>
+                {post.date}
+              </span>
+            </div>
+
+            {/* Title + excerpt */}
+            <div className="flex-1 px-6 md:px-0 py-5 pr-4 min-w-0">
+              {/* Mobile date */}
+              <span className="md:hidden block text-[#888] text-[10px] font-bold tracking-widest mb-1.5 tabular-nums"
+                style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
+                {post.date}
+              </span>
+              <p className="text-[#E5E5E5] text-[15px] md:text-base font-semibold leading-snug group-hover:text-white transition-colors truncate pr-4"
+                style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
+                {post.title}
+              </p>
+              {/* Excerpt — visible when expanded */}
+              {expanded === idx && post.excerpt && (
+                <motion.p
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="text-[#999] text-sm mt-2 leading-relaxed pr-4"
+                >
+                  {post.excerpt}
+                </motion.p>
+              )}
+            </div>
+
+            {/* Expand button */}
+            <div className="w-[40px] shrink-0 flex items-center justify-center py-5 pr-4">
+              <button
+                onClick={(e) => toggle(e, idx)}
+                className="w-6 h-6 flex items-center justify-center text-[#666] hover:text-[#f03a28] transition-colors duration-150 cursor-pointer"
+                aria-label={expanded === idx ? 'Colapsar' : 'Expandir'}
+              >
+                <span className="text-base font-bold leading-none"
+                  style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', transform: expanded === idx ? 'rotate(45deg)' : 'none', display: 'inline-block', transition: 'transform 0.2s' }}>
+                  +
+                </span>
+              </button>
+            </div>
+          </a>
+        </div>
+      ))}
+
+      {/* Footer */}
+      {!loading && !error && posts.length > 0 && (
+        <div className="px-6 py-4 flex items-center justify-between border-t border-[#111] bg-[#060608]">
+          <p className="text-[#666] text-[10px] uppercase tracking-[0.14em] font-bold" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
+            {posts.length} ediciones
+          </p>
+          <a href="https://mvpower.beehiiv.com" target="_blank" rel="noopener noreferrer"
+            className="text-[#f03a28] text-xs font-bold hover:underline tracking-wide uppercase"
+            style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', letterSpacing: '0.1em' }}>
+            {tr?.feedCta || 'Ver todas →'}
+          </a>
+        </div>
+      )}
+    </div>
+  );
+};
+
+// ─── Newsletter Modal ──────────────────────────────────────────────────────────
+
+const NewsletterModal = ({ open, onClose, lang }) => {
+  useEffect(() => {
+    if (open) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = '';
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
+
+  if (!open) return null;
+
+  return (
+    <div className="fixed inset-0 z-[200] flex flex-col" style={{ background: '#08080A' }}>
+      {/* Top bar */}
+      <div className="flex items-center justify-between px-6 md:px-12 py-4 border-b border-[#1A1A1A] shrink-0">
+        <div className="flex items-center gap-4">
+          <span className="font-black text-[#E5E5E5] text-xl tracking-tight"
+            style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>MVP</span>
+          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#f03a28]"
+            style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
+            {lang === 'en' ? 'THE ARCHIVE' : 'EL ARCHIVO'}
+          </span>
+        </div>
+        <button
+          onClick={onClose}
+          className="w-9 h-9 flex items-center justify-center text-[#555] hover:text-[#E5E5E5] transition-colors border border-[#1F1F1F] hover:border-[#444] cursor-pointer"
+          aria-label="Close"
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      {/* Scrollable content */}
+      <div className="flex-1 overflow-y-auto">
+        <div className="max-w-4xl mx-auto px-6 md:px-12 py-10">
+          <div className="mb-8">
+            <h2 className="text-3xl md:text-4xl font-black text-[#E5E5E5] mb-2 leading-tight"
+              style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
+              {lang === 'en' ? 'Every edition.' : 'Cada edición.'}
+              <span className="text-[#555]"> {lang === 'en' ? 'Read before you subscribe.' : 'Lee antes de suscribirte.'}</span>
+            </h2>
+            <p className="text-[#555] text-sm">
+              {lang === 'en' ? 'New edition every week — Thursdays.' : 'Nueva edición cada semana — jueves.'}
+            </p>
+          </div>
+
+          <NewsletterFeed tr={{ feedCta: lang === 'en' ? 'Open in beehiiv →' : 'Abrir en beehiiv →' }} />
+
+          {/* Subscribe CTA */}
+          <div className="mt-10 border border-[#1A1A1A] p-6 md:p-8" style={{ background: '#0D0D0D' }}>
+            <p className="text-[#f03a28] text-[10px] font-black uppercase tracking-[0.2em] mb-3"
+              style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
+              {lang === 'en' ? 'Join free' : 'Únete gratis'}
+            </p>
+            <p className="text-[#E5E5E5] text-lg font-bold mb-5 leading-snug"
+              style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
+              {lang === 'en'
+                ? 'Get the next edition in your inbox.'
+                : 'Recibe la próxima edición en tu inbox.'}
+            </p>
+            <EmailInput
+              placeholder={lang === 'en' ? 'your@email.com' : 'tu@email.com'}
+              buttonText={lang === 'en' ? 'Subscribe Free' : 'Suscríbete Gratis'}
+            />
+            <p className="text-[#444] text-[10px] mt-3">
+              {lang === 'en' ? '4,000+ subscribers · 18 countries · Free' : '4,000+ suscriptores · 18 países · Gratis'}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // ─── Main App ──────────────────────────────────────────────────────────────────
 
 export default function App() {
   const [scrolled, setScrolled] = useState(false);
   const [lang, setLang] = useState('en');
+  const [newsletterOpen, setNewsletterOpen] = useState(false);
   const tr = translations[lang];
   const { count, spotsLeft, foundingActive } = useMemberCount();
 
@@ -380,7 +598,8 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0D0D0D] antialiased" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+    <div className="min-h-screen bg-[#0D0D0D] antialiased" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
+      <NewsletterModal open={newsletterOpen} onClose={() => setNewsletterOpen(false)} lang={lang} />
 
       {/* ── NAV ─────────────────────────────────────────────────────────────── */}
       <motion.nav
@@ -399,7 +618,7 @@ export default function App() {
             <button
               onClick={() => setLang(l => l === 'en' ? 'es' : 'en')}
               className="flex items-center gap-1.5 text-xs font-bold text-[#888] hover:text-[#E5E5E5] transition-colors tracking-widest uppercase border border-[#2A2A2A] hover:border-[#555] px-2.5 py-1.5 cursor-pointer"
-              style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+              style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}
               aria-label="Toggle language"
             >
               <span className="text-base leading-none">{lang === 'en' ? '🇪🇸' : '🇺🇸'}</span>
@@ -407,7 +626,7 @@ export default function App() {
             </button>
             <a href="#pipeline"
               className="active-deals-btn hidden sm:flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-wide text-[#0D0D0D] bg-[#f03a28] hover:bg-[#f55040] transition-colors cursor-pointer"
-              style={{ fontFamily: 'Space Grotesk, sans-serif', letterSpacing: '0.08em' }}>
+              style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', letterSpacing: '0.08em' }}>
               <span className="relative flex h-2 w-2 shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0D0D0D] opacity-60" style={{ animationDuration: '2s' }}></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0D0D0D]"></span>
@@ -416,18 +635,18 @@ export default function App() {
             </a>
 
             {/* Join the Newsletter — desktop only */}
-            <a href="https://mvpower.beehiiv.com"
-              target="_blank" rel="noopener noreferrer"
-              className="hidden sm:block px-4 py-2 border border-[#f03a28] text-[#f03a28] text-xs font-bold hover:bg-[#f03a28] hover:text-[#0D0D0D] transition-all tracking-wide uppercase"
-              style={{ fontFamily: 'Space Grotesk, sans-serif', letterSpacing: '0.08em' }}>
+            <button
+              onClick={() => setNewsletterOpen(true)}
+              className="hidden sm:block px-4 py-2 border border-[#f03a28] text-[#f03a28] text-xs font-bold hover:bg-[#f03a28] hover:text-[#0D0D0D] transition-all tracking-wide uppercase cursor-pointer"
+              style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', letterSpacing: '0.08em' }}>
               {tr.nav.join}
-            </a>
+            </button>
 
             {/* Apply for MVP Club — full text desktop, short on mobile */}
             <a href="/mvpclub"
               className="flex items-center px-3 py-1.5 sm:px-4 sm:py-2 text-xs font-bold uppercase tracking-wide transition-all cursor-pointer"
               style={{
-                fontFamily: 'Space Grotesk, sans-serif',
+                fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',
                 letterSpacing: '0.08em',
                 color: '#050504',
                 background: '#C4A04A',
@@ -451,7 +670,7 @@ export default function App() {
             description: tr.hero.description,
             subtitle: tr.hero.subtitle,
             primaryAction: {
-              href: 'https://mvpower.beehiiv.com',
+              onClick: () => setNewsletterOpen(true),
               text: tr.hero.joinFree,
               icon: (
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -476,7 +695,7 @@ export default function App() {
               <Reveal key={i} delay={i * 60}>
                 <div className="bg-[#0D0D0D] p-8 md:p-10 group hover:bg-[#111] transition-colors">
                   <span className="text-[#f03a28]/30 font-black text-5xl leading-none block mb-4"
-                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>0{i + 1}</span>
+                    style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>0{i + 1}</span>
                   <p className="text-[#E5E5E5] text-lg md:text-xl leading-snug font-medium group-hover:text-white transition-colors">{text}</p>
                 </div>
               </Reveal>
@@ -485,7 +704,7 @@ export default function App() {
           <Reveal delay={200}>
             <div className="border-l-2 border-[#f03a28]/30 pl-8 max-w-2xl">
               <p className="text-2xl md:text-3xl text-[#E5E5E5] leading-tight font-medium"
-                style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
                 {tr.pain.quote}<br />
                 <span className="text-[#888]">{tr.pain.quoteSub}</span>
               </p>
@@ -500,7 +719,7 @@ export default function App() {
           <Reveal>
             <p className="text-xl font-black text-[#f03a28] uppercase tracking-[0.22em] mb-4">{tr.whatYouGet.label}</p>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#E5E5E5] mb-16 leading-[0.95]"
-              style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+              style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
               {tr.whatYouGet.heading}<br /><span className="text-[#888]">{tr.whatYouGet.headingSub}</span>
             </h2>
           </Reveal>
@@ -512,11 +731,11 @@ export default function App() {
                   <span className={`inline-block px-3 py-1 text-[10px] font-black tracking-[0.15em] uppercase mb-6 ${
                     gold ? 'bg-[#f03a28] text-[#0D0D0D]' : 'border border-[#2A2A2A] text-[#888]'
                   }`}
-                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                    style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
                     {label}
                   </span>
                   <h3 className="text-[#E5E5E5] text-2xl font-bold mb-3 leading-tight group-hover:text-white transition-colors"
-                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{title}</h3>
+                    style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>{title}</h3>
                   <p className="text-[#888] text-base leading-relaxed">{desc}</p>
                 </div>
               </Reveal>
@@ -524,15 +743,15 @@ export default function App() {
           </div>
 
           <Reveal delay={400}>
-            <a href="https://mvpower.beehiiv.com"
-              target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 text-[#f03a28] text-base font-bold hover:gap-5 transition-all mt-12"
-              style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+            <button
+              onClick={() => setNewsletterOpen(true)}
+              className="inline-flex items-center gap-3 text-[#f03a28] text-base font-bold hover:gap-5 transition-all mt-12 cursor-pointer"
+              style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
               {tr.whatYouGet.cta}
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3"/>
               </svg>
-            </a>
+            </button>
           </Reveal>
 
           <Reveal delay={500}>
@@ -548,7 +767,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <Reveal>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#E5E5E5] mb-20 leading-[0.95]"
-              style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+              style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
               {tr.proof.heading}<br /><span className="text-[#888]">{tr.proof.headingSub}</span>
             </h2>
           </Reveal>
@@ -559,7 +778,7 @@ export default function App() {
               <Reveal key={l} delay={i * 80}>
                 <div className="bg-[#0D0D0D] p-8 text-center hover:bg-[#0F0F0F] transition-colors">
                   <div className="text-4xl md:text-5xl font-black text-[#f03a28] mb-2 leading-none"
-                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{n}</div>
+                    style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>{n}</div>
                   <div className="text-[#999] text-sm uppercase tracking-[0.12em] font-semibold">{l}</div>
                 </div>
               </Reveal>
@@ -572,10 +791,10 @@ export default function App() {
               <Reveal key={author} delay={i * 100}>
                 <div className="bg-[#0D0D0D] p-8 md:p-10 h-full hover:bg-[#0F0F0F] transition-colors">
                   <p className="text-[#f03a28]/20 text-6xl font-black leading-none mb-4"
-                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>"</p>
+                    style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>"</p>
                   <p className="text-[#999] text-lg leading-relaxed italic mb-6">"{quote}"</p>
                   <div>
-                    <div className="text-[#E5E5E5] font-bold text-sm" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{author}</div>
+                    <div className="text-[#E5E5E5] font-bold text-sm" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>{author}</div>
                     <div className="text-[#777] text-xs mt-1">{company}</div>
                   </div>
                 </div>
@@ -597,7 +816,7 @@ export default function App() {
               <span className="text-[10px] text-[#f03a28] font-black uppercase tracking-[0.2em]">{tr.pipeline.liveLabel}</span>
             </div>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#E5E5E5] mb-4 leading-[0.95]"
-              style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+              style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
               {tr.pipeline.heading}
             </h2>
             <p className="text-[#888] text-lg max-w-xl mb-12">
@@ -620,7 +839,7 @@ export default function App() {
               <div>
                 <p className="text-xl font-black text-[#f03a28] uppercase tracking-[0.22em] mb-4">{tr.services.label}</p>
                 <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#E5E5E5] leading-[0.92]"
-                  style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                  style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
                   {tr.services.heading}<br />{tr.services.headingSub}
                 </h2>
               </div>
@@ -628,7 +847,7 @@ export default function App() {
                 <p className="text-[#777] text-base leading-relaxed mb-6">{tr.services.sub}</p>
                 <a href="https://calendly.com/cairoa" target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-[#f03a28] text-sm font-bold uppercase tracking-[0.14em] border border-[#f03a28]/40 px-5 py-3 hover:bg-[#f03a28] hover:text-[#0D0D0D] transition-all duration-200 cursor-pointer"
-                  style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                  style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
                   {tr.services.cta}
                 </a>
               </div>
@@ -645,7 +864,7 @@ export default function App() {
                   style={{ background: 'radial-gradient(ellipse at 0% 0%, rgba(240,58,40,0.08) 0%, transparent 70%)' }} />
                 <div className="flex items-start justify-between">
                   <span className="text-[#f03a28] text-xs font-black tracking-[0.25em] uppercase"
-                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                    style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
                     {tr.services.items[0].num}
                   </span>
                   {/* Clock icon */}
@@ -655,7 +874,7 @@ export default function App() {
                 </div>
                 <div>
                   <h3 className="text-2xl md:text-3xl font-black tracking-tight text-[#E5E5E5] mb-3 leading-tight"
-                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                    style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
                     {tr.services.items[0].name}
                   </h3>
                   <p className="text-[#666] text-base leading-relaxed group-hover:text-[#888] transition-colors duration-300">
@@ -677,7 +896,7 @@ export default function App() {
                   style={{ background: 'radial-gradient(ellipse at 100% 0%, rgba(240,58,40,0.08) 0%, transparent 70%)' }} />
                 <div className="flex items-start justify-between">
                   <span className="text-[#f03a28] text-xs font-black tracking-[0.25em] uppercase"
-                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                    style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
                     {tr.services.items[1].num}
                   </span>
                   {/* Shield icon */}
@@ -687,7 +906,7 @@ export default function App() {
                 </div>
                 <div>
                   <h3 className="text-2xl md:text-3xl font-black tracking-tight text-[#E5E5E5] mb-3 leading-tight"
-                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                    style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
                     {tr.services.items[1].name}
                   </h3>
                   <p className="text-[#666] text-base leading-relaxed group-hover:text-[#888] transition-colors duration-300">
@@ -709,7 +928,7 @@ export default function App() {
                   style={{ background: 'radial-gradient(ellipse at 0% 100%, rgba(240,58,40,0.08) 0%, transparent 70%)' }} />
                 <div className="flex items-start justify-between">
                   <span className="text-[#f03a28] text-xs font-black tracking-[0.25em] uppercase"
-                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                    style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
                     {tr.services.items[2].num}
                   </span>
                   {/* Search/magnify icon */}
@@ -719,7 +938,7 @@ export default function App() {
                 </div>
                 <div>
                   <h3 className="text-2xl md:text-3xl font-black tracking-tight text-[#E5E5E5] mb-3 leading-tight"
-                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                    style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
                     {tr.services.items[2].name}
                   </h3>
                   <p className="text-[#666] text-base leading-relaxed group-hover:text-[#888] transition-colors duration-300">
@@ -741,7 +960,7 @@ export default function App() {
                   style={{ background: 'radial-gradient(ellipse at 100% 100%, rgba(240,58,40,0.08) 0%, transparent 70%)' }} />
                 <div className="flex items-start justify-between">
                   <span className="text-[#f03a28] text-xs font-black tracking-[0.25em] uppercase"
-                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                    style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
                     {tr.services.items[3].num}
                   </span>
                   {/* Users/cohort icon */}
@@ -751,7 +970,7 @@ export default function App() {
                 </div>
                 <div>
                   <h3 className="text-2xl md:text-3xl font-black tracking-tight text-[#E5E5E5] mb-3 leading-tight"
-                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                    style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
                     {tr.services.items[3].name}
                   </h3>
                   <p className="text-[#666] text-base leading-relaxed group-hover:text-[#888] transition-colors duration-300">
@@ -780,14 +999,14 @@ export default function App() {
               <div className="bg-[#0D0D0D] p-8 md:p-12">
                 <p className="text-xl font-black text-[#f03a28] uppercase tracking-[0.22em] mb-6">{tr.founders.label}</p>
                 <h2 className="text-3xl md:text-4xl font-black tracking-tight text-[#E5E5E5] mb-4 leading-tight"
-                  style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                  style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
                   {tr.founders.heading}<br />{tr.founders.headingSub}
                 </h2>
                 <p className="text-[#888] text-base mb-8 leading-relaxed">{tr.founders.description}</p>
                 <EmailInput placeholder="your@email.com" buttonText={tr.founders.joinFree} className="mb-4 w-full sm:max-w-sm" />
                 <a href="https://forms.gle/CaP1GZQE2XUESm6u5" target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-3 mb-6 text-sm font-bold uppercase tracking-wide transition-colors w-full sm:max-w-sm justify-center"
-                  style={{ fontFamily: 'Space Grotesk, sans-serif', letterSpacing: '0.08em', border: '1px solid #f03a28', color: '#f03a28' }}
+                  style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', letterSpacing: '0.08em', border: '1px solid #f03a28', color: '#f03a28' }}
                   onMouseEnter={e => { e.currentTarget.style.background = '#f03a28'; e.currentTarget.style.color = '#0D0D0D'; }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#f03a28'; }}
                 >
@@ -812,25 +1031,25 @@ export default function App() {
                 <div>
                   <p className="text-xl font-black text-[#f03a28] uppercase tracking-[0.22em] mb-6">{tr.businesses.label}</p>
                   <h2 className="text-3xl md:text-4xl font-black tracking-tight text-[#E5E5E5] mb-4 leading-tight"
-                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                    style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
                     {tr.businesses.heading}<br />{tr.businesses.headingSub}
                   </h2>
                   <div className="flex flex-wrap gap-2 mb-8">
                     {tr.businesses.services.map(s => (
                       <span key={s} className="px-3 py-1 border border-[#2A2A2A] text-[#777] text-xs font-medium"
-                        style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{s}</span>
+                        style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>{s}</span>
                     ))}
                   </div>
                 </div>
                 <div className="flex flex-col gap-3">
                   <a href="https://calendly.com/cairoa" target="_blank" rel="noopener noreferrer"
                     className="inline-flex items-center justify-center px-6 py-3.5 bg-[#f03a28] text-[#0D0D0D] font-bold text-sm hover:bg-[#f55040] transition-colors cursor-pointer"
-                    style={{ fontFamily: 'Space Grotesk, sans-serif', letterSpacing: '0.04em' }}>
+                    style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', letterSpacing: '0.04em' }}>
                     {tr.businesses.book}
                   </a>
                   <a href="mailto:maxventurepower@gmail.com?subject=Partnership Inquiry"
                     className="inline-flex items-center justify-center px-6 py-3.5 border border-[#2A2A2A] text-[#888] font-semibold text-sm hover:border-[#f03a28] hover:text-[#E5E5E5] transition-colors cursor-pointer"
-                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                    style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
                     {tr.businesses.seeOptions}
                   </a>
                 </div>
@@ -846,7 +1065,7 @@ export default function App() {
           <Reveal>
             <p className="text-xl font-black text-[#f03a28] uppercase tracking-[0.22em] mb-4 text-center">{tr.partners.label}</p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-[#E5E5E5] text-center leading-[0.95]"
-              style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+              style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
               Building together.
             </h2>
           </Reveal>
@@ -866,11 +1085,11 @@ export default function App() {
               {[...tr.partners.items, ...tr.partners.items, ...tr.partners.items].map(({ name, url, desc }, i) => (
                 <a key={`${name}-${i}`} href={url} target="_blank" rel="noopener noreferrer"
                   className="partner-card relative overflow-hidden bg-[#0D0D0D] border border-[#1F1F1F] p-8 md:p-10 flex flex-col gap-3 group transition-all duration-300 hover:border-[#f03a28]/40 flex-shrink-0 w-64 md:w-80"
-                  style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                  style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                     style={{ background: 'linear-gradient(135deg, rgba(240,58,40,0.12) 0%, rgba(240,58,40,0.04) 60%, transparent 100%)' }} />
                   <span className="partner-name relative text-2xl md:text-3xl font-black tracking-tight transition-all duration-300"
-                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                    style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
                     {name}
                   </span>
                   <span className="relative text-[#888] text-sm">{desc}</span>
@@ -907,12 +1126,12 @@ export default function App() {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5" style={{ background: '#C4A04A' }} />
               </span>
               <span className="font-black uppercase"
-                style={{ fontFamily: 'Space Grotesk, sans-serif', color: '#C4A04A', fontSize: '0.85rem', letterSpacing: '0.18em' }}>
+                style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', color: '#C4A04A', fontSize: '0.85rem', letterSpacing: '0.18em' }}>
                 MVP Club
               </span>
             </div>
             <div className="h-4 w-px bg-[#3A3530] hidden sm:block" />
-            <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.95rem', color: '#C8BFB4' }}>
+            <p style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', fontSize: '0.95rem', color: '#C8BFB4' }}>
               {lang === 'en'
                 ? 'Private group for founders and operators building in LATAM.'
                 : 'Grupo privado para founders y operadores construyendo en LATAM.'}
@@ -923,7 +1142,7 @@ export default function App() {
           <div className="flex items-center gap-5 shrink-0 flex-wrap">
             {count !== null && (
               <div className="text-right">
-                <span className="font-black" style={{ fontFamily: 'Space Grotesk, sans-serif', color: '#C4A04A', fontSize: '1rem' }}>
+                <span className="font-black" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', color: '#C4A04A', fontSize: '1rem' }}>
                   {count} {lang === 'en' ? 'members' : 'miembros'}
                 </span>
                 {foundingActive && spotsLeft !== null && (
@@ -941,7 +1160,7 @@ export default function App() {
             <a href="/mvpclub"
               className="transition-colors whitespace-nowrap"
               style={{
-                fontFamily: 'Space Grotesk, sans-serif',
+                fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif',
                 fontSize: '0.8rem',
                 fontWeight: 700,
                 letterSpacing: '0.1em',
@@ -966,7 +1185,7 @@ export default function App() {
           <div className="grid md:grid-cols-4 gap-8 md:gap-12 mb-12">
             <div className="md:col-span-2">
               <MVPLogo className="mb-5" />
-              <p className="text-[#888] text-sm mb-6 italic" style={{ fontFamily: 'DM Sans, sans-serif' }}>
+              <p className="text-[#888] text-sm mb-6 italic" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
                 {tr.footer.tagline}
               </p>
               <div className="flex gap-3">
@@ -999,14 +1218,21 @@ export default function App() {
 
             <div>
               <h4 className="text-[#E5E5E5] font-bold mb-4 text-xs uppercase tracking-[0.12em]"
-                style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{tr.footer.navigate}</h4>
+                style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>{tr.footer.navigate}</h4>
               <ul className="space-y-2 text-[#777] text-sm">
-                {tr.footer.navLinks.map(({ href, label, external, highlight }) => (
+                {tr.footer.navLinks.map(({ href, label, external, highlight, modal }) => (
                   <li key={label}>
-                    <a href={href} {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                      className={`transition-colors ${highlight ? 'text-[#f03a28] hover:text-[#f55040] font-semibold' : 'hover:text-[#f03a28]'}`}>
-                      {label}
-                    </a>
+                    {modal ? (
+                      <button onClick={() => setNewsletterOpen(true)}
+                        className="transition-colors hover:text-[#f03a28] cursor-pointer">
+                        {label}
+                      </button>
+                    ) : (
+                      <a href={href} {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                        className={`transition-colors ${highlight ? 'text-[#f03a28] hover:text-[#f55040] font-semibold' : 'hover:text-[#f03a28]'}`}>
+                        {label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -1014,7 +1240,7 @@ export default function App() {
 
             <div>
               <h4 className="text-[#E5E5E5] font-bold mb-4 text-xs uppercase tracking-[0.12em]"
-                style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{tr.footer.contact}</h4>
+                style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>{tr.footer.contact}</h4>
               <ul className="space-y-2 text-[#777] text-sm">
                 {tr.footer.contactLinks.map(({ href, label, external }) => (
                   <li key={label}>
@@ -1029,7 +1255,7 @@ export default function App() {
           </div>
 
           <div className="pt-8 border-t border-[#111] flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-[#555] text-xs" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{tr.footer.copyright}</p>
+            <p className="text-[#555] text-xs" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>{tr.footer.copyright}</p>
             <p className="text-[#555] text-xs">{tr.footer.builtFor}</p>
           </div>
         </div>

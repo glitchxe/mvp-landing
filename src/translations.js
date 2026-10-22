@@ -1,6 +1,6 @@
 export const translations = {
   en: {
-    nav: { join: 'Join the Newsletter', applyClub: 'Apply for MVP Club' },
+    nav: { join: 'Join the Newsletter', applyClub: 'Join MVP Club' },
     hero: {
       title: 'The capital, tools & connections to build in LATAM exist.',
       highlight: "You just don't have access yet.",
@@ -136,7 +136,7 @@ export const translations = {
         { href: '#services', label: 'Services' },
         { href: '#founders', label: 'For Founders' },
         { href: '#partnerships', label: 'Partners' },
-        { href: 'https://mvpower.beehiiv.com', label: 'Read Newsletter', external: true },
+        { href: '#', label: 'Read Newsletter', modal: true },
       ],
       contactLinks: [
         { href: 'mailto:maxventurepower@gmail.com', label: 'maxventurepower@gmail.com' },
@@ -150,7 +150,7 @@ export const translations = {
   },
 
   es: {
-    nav: { join: 'Únete al Newsletter', applyClub: 'Aplica al MVP Club' },
+    nav: { join: 'Únete al Newsletter', applyClub: 'Join MVP Club' },
     hero: {
       title: 'El capital, herramientas y conexiones para construir en LATAM existen.',
       highlight: 'Aún no tienes acceso.',
@@ -286,7 +286,7 @@ export const translations = {
         { href: '#services', label: 'Servicios' },
         { href: '#founders', label: 'Para Fundadores' },
         { href: '#partnerships', label: 'Partners' },
-        { href: 'https://mvpower.beehiiv.com', label: 'Leer Newsletter', external: true },
+        { href: '#', label: 'Leer Newsletter', modal: true },
       ],
       contactLinks: [
         { href: 'mailto:maxventurepower@gmail.com', label: 'maxventurepower@gmail.com' },

@@ -7,6 +7,10 @@
   ],
   "rewrites": [
     { "source": "/mvpclub", "destination": "/mvpclub.html" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  ],
+  "crons": [
+    { "path": "/api/newsletter", "schedule": "0 15 * * 2" },
+    { "path": "/api/newsletter", "schedule": "0 15 * * 4" }
   ]
 }

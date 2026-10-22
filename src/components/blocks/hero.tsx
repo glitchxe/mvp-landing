@@ -9,7 +9,7 @@ interface HeroContentProps {
   titleHighlight?: string;
   description: string;
   subtitle?: string;
-  primaryAction?: { href: string; text: string; icon?: React.ReactNode };
+  primaryAction?: { href?: string; text: string; icon?: React.ReactNode; onClick?: () => void };
   secondaryAction?: { href: string; text: string; icon?: React.ReactNode };
 }
 
@@ -51,17 +51,29 @@ function HeroContent({ title, titleHighlight, description, subtitle, primaryActi
         transition={{ delay: 0.3, duration: 0.8, ease }}
       >
         {primaryAction && (
-          <a
-            href={primaryAction.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(
-              "inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#f03a28] text-[#0D0D0D] font-bold text-base hover:bg-[#f55040] transition-colors cursor-pointer w-full sm:w-auto"
-            )}
-          >
-            {primaryAction.icon}
-            {primaryAction.text}
-          </a>
+          primaryAction.onClick ? (
+            <button
+              onClick={primaryAction.onClick}
+              className={cn(
+                "inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#f03a28] text-[#0D0D0D] font-bold text-base hover:bg-[#f55040] transition-colors cursor-pointer w-full sm:w-auto"
+              )}
+            >
+              {primaryAction.icon}
+              {primaryAction.text}
+            </button>
+          ) : (
+            <a
+              href={primaryAction.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                "inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#f03a28] text-[#0D0D0D] font-bold text-base hover:bg-[#f55040] transition-colors cursor-pointer w-full sm:w-auto"
+              )}
+            >
+              {primaryAction.icon}
+              {primaryAction.text}
+            </a>
+          )
         )}
         {secondaryAction && (
           <a

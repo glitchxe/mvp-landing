@@ -398,10 +398,10 @@ const NewsletterFeed = ({ tr }) => {
 
       {/* Table header */}
       <div className="hidden md:grid grid-cols-[140px_1fr_40px] gap-0 px-6 py-3 border-b border-[#1A1A1A] bg-[#060608]">
-        <span className="text-[#777] text-[10px] uppercase tracking-[0.18em] font-black" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
+        <span className="text-[#aaa] text-[11px] uppercase tracking-[0.18em] font-black" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
           / DATE
         </span>
-        <span className="text-[#777] text-[10px] uppercase tracking-[0.18em] font-black" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
+        <span className="text-[#aaa] text-[11px] uppercase tracking-[0.18em] font-black" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
           / TÍTULO
         </span>
         <span />
@@ -442,8 +442,8 @@ const NewsletterFeed = ({ tr }) => {
           >
             {/* Date — desktop */}
             <div className="hidden md:flex items-center w-[140px] shrink-0 px-6 py-5">
-              <span className="text-[#888] text-[11px] font-bold tracking-widest tabular-nums group-hover:text-[#aaa] transition-colors"
-                style={{ fontFamily: 'Space Grotesk, monospace' }}>
+              <span className="text-[#bbb] text-sm font-bold tracking-widest tabular-nums group-hover:text-white transition-colors"
+                style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
                 {post.date}
               </span>
             </div>
@@ -451,11 +451,11 @@ const NewsletterFeed = ({ tr }) => {
             {/* Title + excerpt */}
             <div className="flex-1 px-6 md:px-0 py-5 pr-4 min-w-0">
               {/* Mobile date */}
-              <span className="md:hidden block text-[#888] text-[10px] font-bold tracking-widest mb-1.5 tabular-nums"
+              <span className="md:hidden block text-[#bbb] text-xs font-bold tracking-widest mb-1.5 tabular-nums"
                 style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
                 {post.date}
               </span>
-              <p className="text-[#E5E5E5] text-[15px] md:text-base font-semibold leading-snug group-hover:text-white transition-colors truncate pr-4"
+              <p className="text-white text-base md:text-lg font-semibold leading-snug group-hover:text-white transition-colors truncate pr-4"
                 style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
                 {post.title}
               </p>
@@ -465,7 +465,7 @@ const NewsletterFeed = ({ tr }) => {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="text-[#999] text-sm mt-2 leading-relaxed pr-4"
+                  className="text-[#bbb] text-sm mt-2 leading-relaxed pr-4"
                 >
                   {post.excerpt}
                 </motion.p>
@@ -476,10 +476,10 @@ const NewsletterFeed = ({ tr }) => {
             <div className="w-[40px] shrink-0 flex items-center justify-center py-5 pr-4">
               <button
                 onClick={(e) => toggle(e, idx)}
-                className="w-6 h-6 flex items-center justify-center text-[#666] hover:text-[#f03a28] transition-colors duration-150 cursor-pointer"
+                className="w-6 h-6 flex items-center justify-center text-[#999] hover:text-[#f03a28] transition-colors duration-150 cursor-pointer"
                 aria-label={expanded === idx ? 'Colapsar' : 'Expandir'}
               >
-                <span className="text-base font-bold leading-none"
+                <span className="text-lg font-bold leading-none"
                   style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', transform: expanded === idx ? 'rotate(45deg)' : 'none', display: 'inline-block', transition: 'transform 0.2s' }}>
                   +
                 </span>
@@ -492,7 +492,7 @@ const NewsletterFeed = ({ tr }) => {
       {/* Footer */}
       {!loading && !error && posts.length > 0 && (
         <div className="px-6 py-4 flex items-center justify-between border-t border-[#111] bg-[#060608]">
-          <p className="text-[#666] text-[10px] uppercase tracking-[0.14em] font-bold" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
+          <p className="text-[#999] text-[10px] uppercase tracking-[0.14em] font-bold" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
             {posts.length} ediciones
           </p>
           <a href="https://mvpower.beehiiv.com" target="_blank" rel="noopener noreferrer"
@@ -522,19 +522,19 @@ const NewsletterModal = ({ open, onClose, lang }) => {
       {/* Top bar */}
       <div className="flex items-center justify-between px-6 md:px-12 py-4 border-b border-[#1A1A1A] shrink-0">
         <div className="flex items-center gap-4">
-          <span className="font-black text-[#E5E5E5] text-xl tracking-tight"
-            style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>MVP</span>
-          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#f03a28]"
-            style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
+          <span className="font-black text-[#E5E5E5] tracking-tight"
+            style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', fontSize: '2.25rem', letterSpacing: '-0.03em', lineHeight: 1 }}>MVP</span>
+          <span className="font-semibold uppercase text-[#f03a28]"
+            style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', fontSize: '0.975rem', letterSpacing: '0.16em' }}>
             {lang === 'en' ? 'THE ARCHIVE' : 'EL ARCHIVO'}
           </span>
         </div>
         <button
           onClick={onClose}
-          className="w-9 h-9 flex items-center justify-center text-[#555] hover:text-[#E5E5E5] transition-colors border border-[#1F1F1F] hover:border-[#444] cursor-pointer"
+          className="w-10 h-10 flex items-center justify-center text-[#aaa] hover:text-white transition-colors border border-[#333] hover:border-[#666] cursor-pointer"
           aria-label="Close"
         >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12"/>
           </svg>
         </button>
@@ -544,12 +544,12 @@ const NewsletterModal = ({ open, onClose, lang }) => {
       <div className="flex-1 overflow-y-auto">
         <div className="max-w-4xl mx-auto px-6 md:px-12 py-10">
           <div className="mb-8">
-            <h2 className="text-3xl md:text-4xl font-black text-[#E5E5E5] mb-2 leading-tight"
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-2 leading-tight"
               style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif' }}>
               {lang === 'en' ? 'Every edition.' : 'Cada edición.'}
-              <span className="text-[#555]"> {lang === 'en' ? 'Read before you subscribe.' : 'Lee antes de suscribirte.'}</span>
+              <span className="text-[#888]"> {lang === 'en' ? 'Read before you subscribe.' : 'Lee antes de suscribirte.'}</span>
             </h2>
-            <p className="text-[#555] text-sm">
+            <p className="text-[#777] text-sm">
               {lang === 'en' ? 'New edition every week — Thursdays.' : 'Nueva edición cada semana — jueves.'}
             </p>
           </div>
@@ -572,7 +572,7 @@ const NewsletterModal = ({ open, onClose, lang }) => {
               placeholder={lang === 'en' ? 'your@email.com' : 'tu@email.com'}
               buttonText={lang === 'en' ? 'Subscribe Free' : 'Suscríbete Gratis'}
             />
-            <p className="text-[#444] text-[10px] mt-3">
+            <p className="text-[#777] text-[10px] mt-3">
               {lang === 'en' ? '4,000+ subscribers · 18 countries · Free' : '4,000+ suscriptores · 18 países · Gratis'}
             </p>
           </div>
